@@ -1,13 +1,9 @@
 import express from "express";
+import serverless from "serverless-http";
+import { APIGatewayEvent, Context } from "aws-lambda";
 import { pool } from "./db/pool";
 
 const app = express();
-
-const port = 3001;
-
-app.get("/", (req, res) => {
-    res.send("Default");
-});
 
 app.get("/health_check", (req, res) => {
     res.send("Success!");
@@ -20,7 +16,11 @@ app.get("/data", async (req, res) => {
     client.release();
 });
 
-app.listen(port, () => {
-    console.log(`Now listening on port ${port}`);
-});
- 
+app.use(express.json());
+
+const handler = serverless(app);
+
+exports.handler = async (event: APIGatewayEvent, context: Context) => {
+    const result = await handler(event, context);
+    return result;
+};  
