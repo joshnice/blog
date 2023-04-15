@@ -1,32 +1,14 @@
 import express from "express";
 import serverless from "serverless-http";
 import { APIGatewayEvent, Context } from "aws-lambda";
-import { connection } from "./db/pool";
 import dotenv from "dotenv";
-import { MysqlError } from "mysql";
+import { router as healthCheckRouter} from "./routes/health-check";
 
 dotenv.config();
 
-const app = express();
+export const app = express();
 
-
-app.get("/health_check", (req, res) => {
-    res.send("Success!");
-});
-
-app.get("/data", async (req, res) => {
-
-    connection.connect();
-
-    connection.query("select * from users", (error: MysqlError, results: { id: string, name: string }[]) => {
-        if (error) {
-            console.error(error.message);
-        }
-        res.send(results);
-    });
-
-    connection.end();
-});
+app.use("/health_check", healthCheckRouter);
 
 app.use(express.json());
 
