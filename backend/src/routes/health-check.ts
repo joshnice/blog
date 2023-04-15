@@ -1,6 +1,6 @@
 import express from "express";
 import { MysqlError } from "mysql";
-import { connection } from "../db/pool";
+import { connection } from "../db/connection";
 
 export const router = express.Router();
 
