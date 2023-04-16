@@ -4,7 +4,8 @@
 	"description": "Monorepo for blog project",
 	"main": "index.js",
 	"workspaces": [
-		"backend"
+		"backend",
+		"common/aws-helpers"
 	],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
