@@ -1,17 +1,14 @@
-import { connection } from "../db/connection";
+import { pool } from "../db/connection";
 
 export async function getPost(postId: string) {
-
-    return new Promise((resolve) => {
-        connection.connect();
+    const connection = await pool.getConnection();
+    try {
         const sql = "select * from posts where id = ?";
-    
-        connection.query(sql, [postId], (error, result) => {
-            if (error) {
-                throw new Error(error.message);
-            }
-            connection.end();
-            resolve(result);
-        });
-    });
+        const [rows] = await connection.execute(sql, [postId]);
+        return rows;    
+    } catch(error) {
+        console.error(error);
+    } finally {
+        connection.release();
+    }
 }

@@ -1,11 +1,22 @@
-import { createConnection } from "mysql2";
 import dotenv from "dotenv";
+import { createPool } from "mysql2/promise";
 
 dotenv.config();
 
-if (process.env.DATABASE_URL == null) {
-    throw new Error("Database url is null and therefore can't connect to database");
+
+
+if (process.env.DATABASE_HOST == null || process.env.DATABASE_USER == null || process.env.DATABASE_PASSWORD == null || process.env.DATABASE_NAME == null) {
+    throw new Error("Database is missing configuration variables");
 }
 
-export const connection = createConnection(process.env.DATABASE_URL);
+export const pool = createPool({
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME,
+    ssl: {
+        rejectUnauthorized: true,
+    }
+})
+
 
