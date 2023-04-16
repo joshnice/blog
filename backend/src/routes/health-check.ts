@@ -1,19 +1,11 @@
 import express from "express";
 import { MysqlError } from "mysql";
-import { connection } from "../db/connection";
+import { pool } from "../db/connection";
+import { getUsers } from "../models/user";
 
 export const router = express.Router();
 
-router.get("/", (req, res) => {
-
-    connection.connect();
-
-    connection.query("select * from users", (error: MysqlError, results: { id: string, name: string }[]) => {
-        if (error) {
-            console.error(error.message);
-        }
-        res.send(results);
-    });
-
-    connection.end();
+router.get("/", async (req, res) => {
+    const users = await getUsers();
+    res.json(users);
 });
