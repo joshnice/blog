@@ -4,11 +4,16 @@
   "description": "Helper functions for AWS resources",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rimraf dist && npx tsc"
+    "build": "rimraf dist && npx tsc",
+    "test": "jest"
   },
   "author": "joshnice",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-typescript": "^7.21.4",
+    "@types/jest": "^29.5.1",
+    "jest": "^29.5.0",
     "rimraf": "^5.0.0",
     "typescript": "^5.0.4"
   }
