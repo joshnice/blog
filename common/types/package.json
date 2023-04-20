@@ -1,0 +1,14 @@
+{
+  "name": "@joshnice/types",
+  "version": "1.0.0",
+  "description": "Types for blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "joshnice",
+  "license": "ISC",
+  "devDependencies": {
+    "mysql2": "^3.2.3"
+  }
+}
