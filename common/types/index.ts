@@ -1,1 +1,1 @@
-export * from "./src/db-post";
+export * from "./src/db-types/db-post";
