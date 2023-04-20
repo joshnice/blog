@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"workspaces": [
 		"backend",
-		"common/aws-helpers"
+		"common/aws-helpers",
+		"common/types"
 	],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
