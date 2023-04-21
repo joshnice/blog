@@ -1,12 +1,15 @@
 {
   "name": "@joshnice/aws-helpers",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Helper functions for AWS resources",
   "main": "dist/index.js",
   "scripts": {
     "build": "rimraf dist && npx tsc",
     "test": "jest"
   },
+  "files": [
+    "dist./*"
+  ],
   "author": "joshnice",
   "license": "ISC",
   "devDependencies": {
