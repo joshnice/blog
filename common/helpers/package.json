@@ -1,11 +1,14 @@
 {
   "name": "@joshnice/helpers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Package for general helpers ",
   "main": "dist/index.js",
   "scripts": {
     "build": "rimraf dist && npx tsc"
   },
+  "files": [
+    "dist/*"
+  ],
   "author": "joshnice",
   "license": "ISC"
 }

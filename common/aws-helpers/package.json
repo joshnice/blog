@@ -1,6 +1,6 @@
 {
   "name": "@joshnice/aws-helpers",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "Helper functions for AWS resources",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "test": "jest"
   },
   "files": [
-    "dist./*"
+    "dist/*"
   ],
   "author": "joshnice",
   "license": "ISC",

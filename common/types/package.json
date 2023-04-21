@@ -1,11 +1,14 @@
 {
   "name": "@joshnice/types",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Types for blog",
   "main": "dist/index.js",
   "scripts": {
     "build": "rimraf dist && npx tsc"
   },
+  "files": [
+    "dist/*"
+  ],
   "author": "joshnice",
   "license": "ISC",
   "devDependencies": {
