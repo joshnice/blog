@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@joshnice/aws-helpers": "file:../common/aws-helpers",
+    "@joshnice/helpers": "file:../common/helpers",
     "@joshnice/types": "file:../common/types",
     "aws-lambda": "^1.0.7",
     "aws-sdk": "^2.1361.0",

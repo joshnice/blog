@@ -1,12 +1,19 @@
-import { ContentType } from "@joshnice/types/src/content-type";
-import { PostContent } from "@joshnice/types/src/post-content";
+import { ContentType, PostContent } from "@joshnice/types";
 
-export function postContentJsonToTyped(postContentJson: {type: string, content: string}[]): PostContent[] {
-    return postContentJson.map(({ content, type }) => ({ content, type: parseContentType(type) }));
+interface PostContentJson {
+    content: string;
+    type: string;
+}
+
+export function postContentJsonToTyped(postContentJson: string): PostContent[] {
+    const parsePostContentJson: PostContentJson[] = JSON.parse(postContentJson);
+    return parsePostContentJson.map(({ content, type }) => ({ content, type: parseContentType(type) }));
 }
 
 function parseContentType(type: string): ContentType {
     switch (type) {
+        case "title":
+            return ContentType.TITLE;
         case "text":
             return ContentType.TEXT;
         case "code":

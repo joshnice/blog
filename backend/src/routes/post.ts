@@ -2,6 +2,7 @@ import express from "express";
 import { urlToBucketAndKey } from "@joshnice/aws-helpers";
 import { getPost } from "../models/post";
 import { s3Connection } from "../aws/connection";
+import { postContentJsonToTyped } from "@joshnice/helpers";
 
 export const router = express.Router();
 
@@ -27,9 +28,11 @@ router.get("/:id", async (req, res) => {
         return;
     }
 
-    const postJson = object.Body.toString('utf-8');
+    const postContentJson = object.Body.toString('utf-8');
 
-    console.log(postJson);
+    const typedPostContent = postContentJsonToTyped(postContentJson);
+
+    console.log(typedPostContent);
 
     res.send(post);
 });
