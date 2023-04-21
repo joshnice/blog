@@ -1,6 +1,6 @@
-import { PostType } from "./post-type";
+import { ContentType } from "./content-type";
 
 export interface PostContent { 
-    type: PostType;
+    type: ContentType;
     content: string;
 }
