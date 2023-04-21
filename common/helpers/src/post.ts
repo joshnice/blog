@@ -27,3 +27,15 @@ function parseContentType(type: string): ContentType {
     }
 
 }
+
+export async function addSignatureToS3Assets(postContent: PostContent[], createSignature: (url: string) => Promise<string>): Promise<PostContent[]> {
+    const signedContent: PostContent[] = [];
+    for await (const {type, content} of postContent) {
+        signedContent.push({
+            type,
+            content: type === ContentType.IMAGE || type === ContentType.VIDEO ? await createSignature(content) : content
+        });
+    }
+
+    return signedContent;
+}

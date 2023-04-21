@@ -10,4 +10,4 @@ export function urlToBucketAndKey(url: string): { bucketName: string, key: strin
     const spiltUrl = url.split("/");
     const [bucketName] = spiltUrl[2].split(".");
     return { bucketName, key: spiltUrl[spiltUrl.length - 1] }
-} 
+}

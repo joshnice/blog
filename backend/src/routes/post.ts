@@ -2,7 +2,7 @@ import express from "express";
 import { urlToBucketAndKey } from "@joshnice/aws-helpers";
 import { getPost } from "../models/post";
 import { s3Connection } from "../aws/connection";
-import { postContentJsonToTyped } from "@joshnice/helpers";
+import { addSignatureToS3Assets, postContentJsonToTyped } from "@joshnice/helpers";
 
 export const router = express.Router();
 
@@ -28,11 +28,12 @@ router.get("/:id", async (req, res) => {
         return;
     }
 
-    const postContentJson = object.Body.toString('utf-8');
+    const typedPostContent = postContentJsonToTyped(object.Body.toString('utf-8'));
 
-    const typedPostContent = postContentJsonToTyped(postContentJson);
+    const typedPostContentWithSignatures = await addSignatureToS3Assets(typedPostContent, async (url: string) => {
+        const { bucketName, key } = urlToBucketAndKey(url);
+        return await s3Connection.getSignedUrlPromise("getObject", { Bucket: bucketName, Key: key, Expires: 3600 });
+    });
 
-    console.log(typedPostContent);
-
-    res.send(post);
+    res.send(typedPostContentWithSignatures);
 });
