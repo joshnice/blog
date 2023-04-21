@@ -6,10 +6,11 @@
 	"workspaces": [
 		"backend",
 		"common/aws-helpers",
-		"common/types"
+		"common/types",
+		"common/helpers"
 	],
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"build": "npm run build -ws --if-present"
 	},
 	"author": "joshnice",
 	"license": "ISC"
