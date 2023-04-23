@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"workspaces": [
 		"backend",
+		"frontend",
 		"common/types",
 		"common/helpers"
 	],
