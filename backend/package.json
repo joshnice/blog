@@ -13,7 +13,6 @@
   "author": "joshnice",
   "license": "ISC",
   "dependencies": {
-    "@joshnice/aws-helpers": "file:../common/aws-helpers",
     "@joshnice/helpers": "file:../common/helpers",
     "@joshnice/types": "file:../common/types",
     "aws-lambda": "^1.0.7",
