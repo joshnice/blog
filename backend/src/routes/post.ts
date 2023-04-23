@@ -2,7 +2,7 @@ import express from "express";
 import { urlToBucketAndKey } from "@joshnice/aws-helpers";
 import { getPost } from "../models/post";
 import { s3Connection } from "../aws/connection";
-import { addSignatureToS3Assets, postContentJsonToTyped } from "@joshnice/helpers";
+import { addSignatureToS3Assets, postContentJsonToTyped, combinePostAndPostContent } from "@joshnice/helpers";
 
 export const router = express.Router();
 
@@ -14,11 +14,11 @@ router.get("/:id", async (req, res) => {
         return;
     }
 
-    const { bucketName, key } = urlToBucketAndKey(post.post_url)
+    const { bucketName: postContentBucketName, key: postContentBucketKey } = urlToBucketAndKey(post.post_url)
 
     const s3Params = {
-        "Bucket": bucketName,
-        "Key": key,   
+        "Bucket": postContentBucketName,
+        "Key": postContentBucketKey,   
     }
 
     const object = await s3Connection.getObject(s3Params).promise();
@@ -35,5 +35,9 @@ router.get("/:id", async (req, res) => {
         return await s3Connection.getSignedUrlPromise("getObject", { Bucket: bucketName, Key: key, Expires: 3600 });
     });
 
-    res.send(typedPostContentWithSignatures);
+    const { bucketName: signedThumbnailBucketName, key: signedThumbnailKey } = urlToBucketAndKey(post.thumbnail_url);
+    
+    const signedThumbnail = await s3Connection.getSignedUrlPromise("getObject", { Bucket: signedThumbnailBucketName, Key: signedThumbnailKey, Expires: 3600 });
+
+    res.send({ ...combinePostAndPostContent({...post, thumbnail_url: signedThumbnail}, typedPostContentWithSignatures) });
 });

@@ -1,4 +1,4 @@
-import { ContentType, PostContent } from "@joshnice/types";
+import { ContentType, DbPost, PostContent } from "@joshnice/types";
 
 interface PostContentJson {
     content: string;
@@ -38,4 +38,17 @@ export async function addSignatureToS3Assets(postContent: PostContent[], createS
     }
 
     return signedContent;
+}
+
+export function combinePostAndPostContent(post: DbPost, postContent: PostContent[]) {
+    const { id, title, thumbnail_url, fist_name, last_name, date  } = post;
+    return {
+        id,
+        title, 
+        thumbnail_url, 
+        fist_name, 
+        last_name,
+        date,
+        content: postContent
+    }
 }
