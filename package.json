@@ -11,8 +11,13 @@
 	],
 	"scripts": {
 		"build": "npm run build -ws --if-present",
-		"test": "npm run test -ws --if-present"
+		"test": "npm run test -ws --if-present",
+		"dev": "concurrently  \"npm run dev -w @joshnice/blog-backend\" \"ttab npm run dev -w @joshnice/blog-frontend\""
 	},
 	"author": "joshnice",
-	"license": "ISC"
+	"license": "ISC",
+	"devDependencies": {
+		"concurrently": "^8.0.1",
+		"ttab": "^0.8.0"
+	}
 }
