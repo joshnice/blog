@@ -1,11 +1,14 @@
-import './App.css'
+import { QueryClient, QueryClientProvider } from "react-query"
+import { HomePage } from "./pages/home";
 
 function App() {
 
+  const queryClient = new QueryClient();
+
   return (
-    <div className="text-3xl font-bold underline">
-      hello world
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <HomePage />
+    </QueryClientProvider>
   )
 }
 
