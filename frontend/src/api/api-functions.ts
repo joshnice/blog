@@ -1,7 +1,7 @@
 import { PostList } from "@joshnice/types";
-import axios from "axios";
 
 export async function getPosts(): Promise<PostList[]> {
-    const response = await axios.get("/api/posts")
-    return response.data;
+    const response = await fetch("/api/posts", { method: "get" });
+    const posts = await response.json();
+    return posts;
 } 
