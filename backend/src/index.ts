@@ -5,10 +5,13 @@ import dotenv from "dotenv";
 import { router as healthCheckRouter } from "./routes/health-check";
 import { router as postRouter } from "./routes/post";
 import { router as postsRouter } from "./routes/posts";
+import cors from "cors";
 
 dotenv.config();
 
 export const app = express();
+
+app.use(cors());
 
 app.use("/health_check", healthCheckRouter);
 app.use("/post", postRouter);
