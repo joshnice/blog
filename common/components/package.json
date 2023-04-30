@@ -1,0 +1,11 @@
+{
+  "name": "@joshnice/components",
+  "version": "1.0.0",
+  "description": "Common components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "joshnice",
+  "license": "ISC"
+}
