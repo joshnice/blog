@@ -26,7 +26,7 @@ export const NavigationBarComponent = ({ pages: initialPages }: NavigationBarPro
             <h4 className="flex-0">Josh Nice</h4>
             <div className="flex justify-center flex-grow gap-8">
                 {pages.map((page) => (
-                    <button className={`${page.selected ? "underline text-white" : "hover:underline hover:text-white text-slate-400"}`} key={page.id} onClick={() => handlePageChange(page.id)}>{page.name}</button>
+                    <button className={`${page.selected ? "underline text-white" : "hover:underline hover:text-white text-slate-400 transition-colors duration-500"}`} key={page.id} onClick={() => handlePageChange(page.id)}>{page.name}</button>
                 ))}
             </div>
         </div>
