@@ -22,7 +22,7 @@ export const NavigationBarComponent = ({ pages: initialPages }: NavigationBarPro
     }
     
     return (
-        <div className="flex items-center justify-start p-5 text-white h-24 w-screen">
+        <div className="flex items-center justify-start p-5 text-white h-24 w-full">
             <h4 className="flex-0">Josh Nice</h4>
             <div className="flex justify-center flex-grow gap-8">
                 {pages.map((page) => (
