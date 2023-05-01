@@ -6,3 +6,9 @@ body {
     box-sizing: border-box;
     background-color: #2d333b;
 }
+
+html {
+    overflow-x: hidden;
+    margin-right: calc(-1 * (100vw - 100%));
+  }
+  
