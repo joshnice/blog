@@ -1,21 +1,21 @@
-import React from "react";
-
 export interface Page {
     id: string; 
     name: string;
+    selected: boolean;
 }
 
 interface NavigationBarProps {
     pages: Page[];
+    onPageChange: (id: string) => void;
 }
 
-export const NavigationBarComponent = ({ pages }: NavigationBarProps) => {
+export const NavigationBarComponent = ({ pages, onPageChange }: NavigationBarProps) => {
     return (
-        <div className="h-24 w-screen border-solid border-4 border-green-600">
-            <span>Josh Nice</span>
-            <div>
+        <div className="flex items-center justify-start p-5 text-white h-24 w-screen">
+            <h4 className="flex-0">Josh Nice</h4>
+            <div className="flex justify-center flex-grow gap-8">
                 {pages.map((page) => (
-                    <button key={page.id}>{page.name}</button>
+                    <button className={`${page.selected ? "underline text-white" : "hover:underline hover:text-white text-slate-400"}`} key={page.id} onClick={() => onPageChange(page.id)}>{page.name}</button>
                 ))}
             </div>
         </div>
