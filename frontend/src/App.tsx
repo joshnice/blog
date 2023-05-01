@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "react-query"
-import { HomePage } from "./pages/home";
+import { RouterComponent } from "./pages/router";
 
 function App() {
 
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <HomePage />
+      <RouterComponent />
     </QueryClientProvider>
   )
 }

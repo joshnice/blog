@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { useNavigate } from "react-router";
+
 export interface Page {
     id: string; 
     name: string;
@@ -6,16 +9,24 @@ export interface Page {
 
 interface NavigationBarProps {
     pages: Page[];
-    onPageChange: (id: string) => void;
 }
 
-export const NavigationBarComponent = ({ pages, onPageChange }: NavigationBarProps) => {
+export const NavigationBarComponent = ({ pages: initialPages }: NavigationBarProps) => {
+    const navigate = useNavigate();
+
+    const [pages, setPages] = useState(initialPages);
+
+    const handlePageChange = (pageId: string) => {
+        setPages(pages.map((page) => ({...page, selected: page.id === pageId})));
+        navigate(pageId);
+    }
+    
     return (
         <div className="flex items-center justify-start p-5 text-white h-24 w-screen">
             <h4 className="flex-0">Josh Nice</h4>
             <div className="flex justify-center flex-grow gap-8">
                 {pages.map((page) => (
-                    <button className={`${page.selected ? "underline text-white" : "hover:underline hover:text-white text-slate-400"}`} key={page.id} onClick={() => onPageChange(page.id)}>{page.name}</button>
+                    <button className={`${page.selected ? "underline text-white" : "hover:underline hover:text-white text-slate-400"}`} key={page.id} onClick={() => handlePageChange(page.id)}>{page.name}</button>
                 ))}
             </div>
         </div>
