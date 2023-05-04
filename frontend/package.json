@@ -14,7 +14,7 @@
     "react-router-dom": "^6.11.0"
   },
   "devDependencies": {
-    "@joshnice/types": "^1.0.2",
+    "@joshnice/types": "file:../common/types",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
