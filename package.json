@@ -12,7 +12,7 @@
 	"scripts": {
 		"build": "npm run build -ws --if-present",
 		"test": "npm run test -ws --if-present",
-		"dev": "concurrently  \"npm run dev -w @joshnice/blog-backend\" \"ttab npm run dev -w @joshnice/blog-frontend\""
+		"dev": "concurrently  \"ttab -t backend npm run dev -w @joshnice/blog-backend\" \"ttab -t frontend npm run dev -w @joshnice/blog-frontend\" \"ttab -t helpers npm run dev -w @joshnice/helpers\" \"ttab -t types npm run dev -w @joshnice/types\""
 	},
 	"author": "joshnice",
 	"license": "ISC",

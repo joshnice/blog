@@ -5,6 +5,10 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "rimraf dist && npx tsc",
+    "prestart": "npm run build",
+    "start": "node dist/index.js",
+    "predev": "npm run build",
+    "dev": "concurrently \"npx tsc -w\" \"nodemon dist/index.js\"",
     "test": "jest"
   },
   "files": [
