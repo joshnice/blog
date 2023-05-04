@@ -17,12 +17,6 @@ export const BlogPostPage = () => {
 
     const { data: post, isLoading: isPostLoading } = useQuery<Post>(id, () => getPost(id));
 
-    console.log("res", post);
-
-    if (isPostLoading || post == null) {
-        return <div>loading...</div>
-    }
-
     const createBlogBlock = useCallback((type: ContentType, content: string) => {
         switch (type) {
             case "TITLE":
@@ -36,7 +30,9 @@ export const BlogPostPage = () => {
         }
     }, []);
 
-    console.log("post.postContent", post.content);
+    if (isPostLoading || post == null) {
+        return <div>loading...</div>
+    }
 
     return (
         <div>
