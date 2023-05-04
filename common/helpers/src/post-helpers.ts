@@ -15,15 +15,15 @@ export function postContentJsonToTyped(postContentJson: string): PostContent[] {
 function parseContentType(type: string): ContentType {
     switch (type) {
         case "title":
-            return ContentType.TITLE;
+            return "TITLE";
         case "text":
-            return ContentType.TEXT;
+            return "TEXT";
         case "code":
-            return ContentType.CODE;
+            return "CODE";
         case "image":
-            return ContentType.IMAGE;
+            return "IMAGE";
         case "video":
-            return ContentType.VIDEO;
+            return "VIDEO";
         default:
             throw new Error(`${type} was not handled`);
     }
@@ -36,7 +36,7 @@ export async function addSignatureToS3Assets(postContent: PostContent[], createS
         signedContent.push({
             id,
             type,
-            content: type === ContentType.IMAGE || type === ContentType.VIDEO ? await createSignature(content) : content
+            content: type === "IMAGE" || type === "VIDEO" ? await createSignature(content) : content
         });
     }
 

@@ -25,11 +25,11 @@ export const BlogPostPage = () => {
 
     const createBlogBlock = useCallback((type: ContentType, content: string) => {
         switch (type) {
-            case ContentType.TITLE:
+            case "TITLE":
                 return <BlogTitleComponent title={content} />
-            case ContentType.TEXT:
+            case "TEXT":
                 return <BlogTextComponent text={content} />
-            case ContentType.IMAGE:
+            case "IMAGE":
                 return <BlogImageComponent imgUrl={content} alt="add alt" />
             default:
                throw new Error("Content type was not handled");

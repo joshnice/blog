@@ -1,7 +1,1 @@
-export enum ContentType {
-    TITLE = "TITLE",
-    TEXT = "TEXT",
-    IMAGE = "IMAGE",
-    VIDEO = "VIDEO",
-    CODE = "CODE"
-}
+export type ContentType = "TITLE" | "TEXT" | "IMAGE" | "VIDEO" | "CODE";
