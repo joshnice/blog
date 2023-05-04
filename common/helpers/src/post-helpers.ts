@@ -1,4 +1,5 @@
 import { ContentType, DbPost, Post, PostContent } from "@joshnice/types";
+import { v4 as uuid } from "uuid";
 
 interface PostContentJson {
     content: string;
@@ -6,8 +7,9 @@ interface PostContentJson {
 }
 
 export function postContentJsonToTyped(postContentJson: string): PostContent[] {
+    // here
     const parsePostContentJson: PostContentJson[] = JSON.parse(postContentJson);
-    return parsePostContentJson.map(({ content, type }) => ({ content, type: parseContentType(type) }));
+    return parsePostContentJson.map(({ content, type }) => ({  id: uuid(), content, type: parseContentType(type) }));
 }
 
 function parseContentType(type: string): ContentType {
@@ -30,8 +32,9 @@ function parseContentType(type: string): ContentType {
 
 export async function addSignatureToS3Assets(postContent: PostContent[], createSignature: (url: string) => Promise<string>): Promise<PostContent[]> {
     const signedContent: PostContent[] = [];
-    for await (const {type, content} of postContent) {
+    for await (const {id, type, content} of postContent) {
         signedContent.push({
+            id,
             type,
             content: type === ContentType.IMAGE || type === ContentType.VIDEO ? await createSignature(content) : content
         });

@@ -23,7 +23,7 @@ export const BlogPostPage = () => {
     return (
         <div>
             {post.content.map((content) => (
-                <div>{content.content}</div>
+                <div key={content.id}>{content.content}</div>
             ))}
         </div>
     );
