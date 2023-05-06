@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { useLocation } from "react-router-dom";
 
 export interface Page {
     id: string; 
@@ -14,7 +15,16 @@ interface NavigationBarProps {
 export const NavigationBarComponent = ({ pages: initialPages }: NavigationBarProps) => {
     const navigate = useNavigate();
 
+    const location = useLocation();
+
     const [pages, setPages] = useState(initialPages);
+
+    useEffect(() => {
+        const initialPage = initialPages.find(({ id }) => location.pathname.includes(id));
+        if (initialPage != null) {
+            setPages(pages.map((page) => ({...page, selected: page.id === initialPage.id})));
+        }
+    }, []);
 
     const handlePageChange = (pageId: string) => {
         setPages(pages.map((page) => ({...page, selected: page.id === pageId})));
