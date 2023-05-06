@@ -10,7 +10,6 @@ interface BlogSmallPreviewProps extends PostList {
 };
 
 export const BlogPreviewComponent = ({columnStart, columnEnd, thumbnailUrl, title, onBlogClicked, id}: BlogSmallPreviewProps) => {
-    console.log(title, columnStart, columnEnd)
     return (
         <TransitionPreviewButton className={`col-start-${columnStart} col-end-${columnEnd}`} onClick={() => onBlogClicked(id)}>
             <ImageComponent className="block w-full h-full" src={thumbnailUrl}/>

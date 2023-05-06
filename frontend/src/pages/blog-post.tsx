@@ -17,8 +17,6 @@ export const BlogPostPage = () => {
 
     const { data: post, isLoading: isPostLoading } = useQuery<Post>(id, () => getPost(id));
 
-    console.log("isLoading", isPostLoading);
-
     const createBlogBlock = useCallback((type: ContentType, content: string) => {
         switch (type) {
             case "TITLE":
