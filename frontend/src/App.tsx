@@ -3,10 +3,16 @@ import { RouterComponent } from "./pages/router";
 
 function App() {
 
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({   
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      }
+    }
+  });
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient} >
       <RouterComponent />
     </QueryClientProvider>
   )
