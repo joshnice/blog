@@ -3,5 +3,5 @@ interface BlogTextProps {
 }
 
 export const BlogTextComponent = ({ text }: BlogTextProps) => (
-    <p>{text}</p>
+    <p className="text-white text-justify">{text}</p>
 )

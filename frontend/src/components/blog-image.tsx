@@ -5,8 +5,8 @@ interface BlogImageProps {
 }
 
 export const BlogImageComponent = ({ imgUrl, alt, caption }: BlogImageProps) => (
-    <div>
+    <div className="flex flex-col items-center max-w-xl">
         <img src={imgUrl} alt={alt} />
-        {caption && (<p>{caption}</p>)}
+        {caption && (<span className="text-white text-sm w-fit italic mt-1">{caption}</span>)}
     </div>
 ) 
