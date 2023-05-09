@@ -3,7 +3,6 @@ import { getPosts } from "../api/api-functions";
 import { useNavigate } from "react-router-dom";
 import { PageTitleComponent } from "../components/page-title";
 import { BlogPreviewComponent } from "../components/blog-preview";
-import { getBlogPreviewColumnPositionEnd, getBlogPreviewColumnPositionStart } from "../helpers.ts/blog-helpers";
 import { LoadingBarComponent } from "../components/loading-bar";
 
 export const BlogPage = () => {
@@ -31,8 +30,7 @@ export const BlogPage = () => {
                                 onBlogClicked={handleBlogClicked} 
                                 title={post.title}
                                 thumbnailUrl={post.thumbnailUrl}
-                                columnStart={getBlogPreviewColumnPositionStart(index)}
-                                columnEnd={getBlogPreviewColumnPositionEnd(index)}
+                                index={index}
                             />
                         );
                     }
