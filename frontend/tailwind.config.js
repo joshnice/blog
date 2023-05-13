@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       gridTemplateRows: {
-        "preview": "300px 250px 250px",
+        "preview": "350px 300px 300px",
       }
     },
     keyframes: {
