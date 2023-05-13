@@ -1,4 +1,4 @@
-import { ContentType, Post, PostContent } from "@joshnice/types";
+import { Post, PostContent } from "@joshnice/types";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom"
 import { getPost } from "../api/api-functions";
@@ -7,6 +7,7 @@ import { useCallback } from "react";
 import { BlogTextComponent } from "../components/blog-text";
 import { BlogImageComponent } from "../components/blog-image";
 import { PageTitleComponent } from "../components/page-title";
+import { LoadingBarComponent } from "../components/loading-bar";
 
 export const BlogPostPage = () => {
     const { id } = useParams();
@@ -31,7 +32,7 @@ export const BlogPostPage = () => {
     }, []);
 
     if (isPostLoading || post == null) {
-        return <div>loading...</div>
+        return <LoadingBarComponent />
     }
 
     return (
