@@ -10,7 +10,7 @@ export const RouterComponent = () => {
     return (
         <BrowserRouter>
             <NavigationBarComponent pages={pages} />
-            <div className="flex justify-center">
+            <div className="w-full flex justify-center">
                 <Routes>
                     <Route path={homePage.path} element={<HomePage />} />
                     <Route path={aboutPage.id} element={<AboutPage />} />

@@ -10,11 +10,11 @@ interface BlogSmallPreviewProps extends PostList {
 };
 
 const columnValues = [
-    "col-start-1 col-end-3",
-    "col-start-1 col-end-2",
-    "col-start-2 col-end-3",
-    "col-start-1 col-end-2",
-    "col-start-2 col-end-3"
+    "col-start-1 col-end-2  md:col-start-1 md:col-end-3",
+    "col-start-1 col-end-2 md:col-start-1 md:col-end-2",
+    "col-start-1 col-end-2 md:col-start-2 md:col-end-3",
+    "col-start-1 col-end-2 md:col-start-1 md:col-end-2",
+    "col-start-1 col-end-2 md:col-start-2 md:col-end-3"
 ] as const;
 
 export const BlogPreviewComponent = ({ thumbnailUrl, title, onBlogClicked, id, index}: BlogSmallPreviewProps) => {

@@ -8,6 +8,7 @@ export default {
     extend: {
       gridTemplateRows: {
         "preview": "350px 300px 300px",
+        "preview-mobile": "250px 250px 250px 250px 250px"
       }
     },
     keyframes: {
