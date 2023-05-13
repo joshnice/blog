@@ -9,6 +9,8 @@
     }, 
     {
         "type": "image",
-        "content": "https://blog-images-d07c012e-a77f-441a-bad8-a0d984273279.s3.amazonaws.com/code.jpg"
+        "content": "https://blog-images-d07c012e-a77f-441a-bad8-a0d984273279.s3.amazonaws.com/code.jpg",
+        "alt": "Code block",
+        "caption": "image of some code"
     }
 ]

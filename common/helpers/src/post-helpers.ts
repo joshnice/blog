@@ -1,43 +1,57 @@
-import { ContentType, DbPost, Post, PostContent } from "@joshnice/types";
+import { DbPost, Post, PostContent } from "@joshnice/types";
 import { v4 as uuid } from "uuid";
 
 interface PostContentJson {
     content: string;
     type: string;
+    alt?: string;
+    caption?: string;
+    language?: string;
 }
 
 export function postContentJsonToTyped(postContentJson: string): PostContent[] {
-    // here
     const parsePostContentJson: PostContentJson[] = JSON.parse(postContentJson);
-    return parsePostContentJson.map(({ content, type }) => ({  id: uuid(), content, type: parseContentType(type) }));
+    return parsePostContentJson.map((json) => parseContentType(json));
 }
 
-function parseContentType(type: string): ContentType {
-    switch (type) {
+function parseContentType(json: PostContentJson): PostContent {
+    switch (json.type) {
         case "title":
-            return "TITLE";
+            return { id: uuid(), type: "TITLE", content: json.content };
         case "text":
-            return "TEXT";
+            return { id: uuid(), type: "TEXT", content: json.content };
         case "code":
-            return "CODE";
+            if (json.language == null) {
+                throw new Error("Code type was missing language property")
+            }
+            return { id: uuid(), type: "CODE", content: json.content, language: json.language };
         case "image":
-            return "IMAGE";
+            if (json.alt == null) {
+                throw new Error("Code type was missing alt property")
+            }
+            if (json.caption == null) {
+                throw new Error("Code type was missing caption property")
+            }
+            return { id: uuid(), type: "IMAGE", content: json.content, alt: json.alt, caption: json.caption };
         case "video":
-            return "VIDEO";
+            return { id: uuid(), type: "VIDEO", content: json.content };
         default:
-            throw new Error(`${type} was not handled`);
+            throw new Error(`${json.type} was not handled`);
     }
 
 }
 
 export async function addSignatureToS3Assets(postContent: PostContent[], createSignature: (url: string) => Promise<string>): Promise<PostContent[]> {
     const signedContent: PostContent[] = [];
-    for await (const {id, type, content} of postContent) {
-        signedContent.push({
-            id,
-            type,
-            content: type === "IMAGE" || type === "VIDEO" ? await createSignature(content) : content
-        });
+    for await (const contentSection of postContent) {
+        if (contentSection.type === "IMAGE" || contentSection.type === "VIDEO") {
+            signedContent.push({
+                ...contentSection,
+                content: await createSignature(contentSection.content)
+            });
+        } else {
+            signedContent.push(contentSection);
+        }
     }
 
     return signedContent;
