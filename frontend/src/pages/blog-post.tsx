@@ -1,4 +1,4 @@
-import { ContentType, Post } from "@joshnice/types";
+import { ContentType, Post, PostContent } from "@joshnice/types";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom"
 import { getPost } from "../api/api-functions";
@@ -17,14 +17,14 @@ export const BlogPostPage = () => {
 
     const { data: post, isLoading: isPostLoading } = useQuery<Post>(id, () => getPost(id));
 
-    const createBlogBlock = useCallback((type: ContentType, content: string) => {
-        switch (type) {
+    const createBlogBlock = useCallback((postContent: PostContent) => {
+        switch (postContent.type) {
             case "TITLE":
-                return <PageTitleComponent title={content} />
+                return <PageTitleComponent title={postContent.content} />
             case "TEXT":
-                return <BlogTextComponent text={content} />
+                return <BlogTextComponent text={postContent.content} />
             case "IMAGE":
-                return <BlogImageComponent imgUrl={content} alt="add alt" caption="here is a caption" />
+                return <BlogImageComponent imgUrl={postContent.content} alt={postContent.alt} caption={postContent.caption} />
             default:
                throw new Error("Content type was not handled");
         }
@@ -36,9 +36,9 @@ export const BlogPostPage = () => {
 
     return (
         <div className="flex flex-col justify-start items-center w-1/2 p-2 gap-5">
-            {post.content.map(({content, type, id}) => (
+            {post.content.map((postContent) => (
                 <Fragment key={id}>
-                    {createBlogBlock(type, content)}
+                    {createBlogBlock(postContent)}
                 </Fragment>
             ))}
         </div>
