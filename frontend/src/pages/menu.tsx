@@ -1,12 +1,32 @@
-import { useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { pages } from "../constants-and-types/constants";
+import { PreviousPageContext } from "../context/page-context";
 
 export const MenuPage = () => {
 
-    const location = useLocation();
+    const navigate = useNavigate()
 
+    const previousPageContext = useContext(PreviousPageContext);
+
+    const handlePageClicked = (path: string) => {
+        previousPageContext?.setPreviousPath(path);
+        navigate(path);
+    }
+    
     return (
-        <div className={`bg-cyan-50 ${ location.pathname.includes("menu") ? "flex" : "hidden" }`}>
-            Menu
+        <div className="flex flex-col justify-center w-full h-full">
+            {pages.filter(({show}) => show).map((page) => 
+                (
+                    <div key={page.path} className="flex flex-col justify-start items-start w-full h-full">
+                        <div className="h-px bg-slate-400 w-full" />
+                        <button className="text-white pl-4 pr-4 h-28 w-full text-left" onClick={() => handlePageClicked(page.path)}>
+                            {page.name}
+                        </button>
+                    </div>
+                )
+            )}
+            <div className="h-px bg-slate-400 w-full" />
         </div>
     )
 }

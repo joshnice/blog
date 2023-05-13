@@ -1,9 +1,9 @@
-import { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router";
+import { useEffect, useState, useMemo, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { Fade as MenuIcon } from "hamburger-react";
 import { homePage, menuPage } from "../constants-and-types/constants";
-import { MenuPage } from "../pages/menu";
+import { PreviousPageContext } from "../context/page-context";
 
 export interface Page {
     name: string;
@@ -23,29 +23,28 @@ export const NavigationBarComponent = ({ pages: initialPages }: NavigationBarPro
 
     const [pages, setPages] = useState(initialPages);
 
-    const [previouslySelectedPage, setPreviouslySelectedPage] = useState(homePage);
+    const previousPageContext = useContext(PreviousPageContext);
+
+    const isMenuSelected = useMemo(() => location.pathname === menuPage.path, [location.pathname]);
 
     useEffect(() => {
+        previousPageContext?.setPreviousPath(location.pathname);
+
         const initialPage = initialPages.find(({ path }) => location.pathname.includes(path));
         if (initialPage != null) {
             setPages(pages.map((page) => ({...page, selected: page.path === initialPage.path})));
         }
     }, []);
 
-    const handlePageChange = (path: string) => {
-        const previousPage = pages.find(({ selected }) => selected);
-        if (previousPage == null) {
-            throw new Error("Previous page could not be found");
-        }
-        setPreviouslySelectedPage(previousPage);
-        
+    const handlePageChange = (path: string) => {        
+        previousPageContext?.setPreviousPath(path);
         setPages(pages.map((page) => ({...page, selected: page.path === path})));
         navigate(path);
     }
 
     const handleMenuClicked = () => {
-        const isMenuSelected = location.pathname === menuPage.path;
-        handlePageChange(isMenuSelected ? previouslySelectedPage.path : menuPage.path);
+        const perviousPath = previousPageContext?.previousPath ?? homePage.path;
+        handlePageChange(isMenuSelected ? perviousPath : menuPage.path);
     }
     
     return (
@@ -59,7 +58,7 @@ export const NavigationBarComponent = ({ pages: initialPages }: NavigationBarPro
 
             <div className="flex sm:hidden justify-end flex-grow mr-3">
                 <button onClick={handleMenuClicked}>
-                    <MenuIcon size={20} />
+                    <MenuIcon size={20} toggled={isMenuSelected} />
                 </button>
             </div>
         </div>
