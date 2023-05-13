@@ -8,6 +8,7 @@ import { BlogTextComponent } from "../components/blog-text";
 import { BlogImageComponent } from "../components/blog-image";
 import { PageTitleComponent } from "../components/page-title";
 import { LoadingBarComponent } from "../components/loading-bar";
+import { PageContainer } from "../components/page-container";
 
 export const BlogPostPage = () => {
     const { id } = useParams();
@@ -36,12 +37,12 @@ export const BlogPostPage = () => {
     }
 
     return (
-        <div className="flex flex-col justify-start items-center w-1/2 p-2 gap-5">
+        <PageContainer className="flex flex-col justify-start items-center p-2 gap-5">
             {post.content.map((postContent) => (
                 <Fragment key={id}>
                     {createBlogBlock(postContent)}
                 </Fragment>
             ))}
-        </div>
+        </PageContainer>
     );
 }
