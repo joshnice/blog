@@ -13,16 +13,14 @@ export const RouterComponent = () => {
         <PreviousPageContext.Provider value={new PreviousPageClass(homePage.path)}>
             <BrowserRouter>
                 <NavigationBarComponent pages={pages} />
-                <div className="w-full flex justify-center flex-1">
-                    <Routes>
-                        <Route path={homePage.path} element={<HomePage />} />
-                        <Route path={aboutPage.path} element={<AboutPage />} />
-                        <Route path={blogPage.path} element={<BlogPage />} />
-                        <Route path={`${blogPage.path}/:id`} element={<BlogPostPage />} />     
-                        <Route path={menuPage.path} element={<MenuPage />} />                       
-                        <Route path="*" element={<p>Oops something has gone wrong!</p>} />
-                    </Routes>
-                </div>
+                <Routes>
+                    <Route path={homePage.path} element={<HomePage />} />
+                    <Route path={aboutPage.path} element={<AboutPage />} />
+                    <Route path={blogPage.path} element={<BlogPage />} />
+                    <Route path={`${blogPage.path}/:id`} element={<BlogPostPage />} />     
+                    <Route path={menuPage.path} element={<MenuPage />} />                       
+                    <Route path="*" element={<p>Oops something has gone wrong!</p>} />
+                </Routes>
             </BrowserRouter>
         </PreviousPageContext.Provider>
       )
