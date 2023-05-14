@@ -51,7 +51,7 @@ export const NavigationBarComponent = ({ pages: initialPages }: NavigationBarPro
     }
     
     return (
-        <div className="flex items-center justify-start p-5 text-white min-h-24 h-24 w-full">
+        <div className="flex items-center justify-start p-5 text-white min-h-[6rem] h-24 w-full">
             <button onClick={() => handlePageChange(homePage.path)}><h4 className="flex-0">Josh Nice</h4></button>
             <div className="hidden sm:flex justify-center flex-grow gap-8">
                 {pages.filter(({ show }) => show).map((page) => (
