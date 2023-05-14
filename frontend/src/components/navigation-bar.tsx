@@ -30,7 +30,10 @@ export const NavigationBarComponent = ({ pages: initialPages }: NavigationBarPro
     useEffect(() => {
         previousPageContext?.setPreviousPath(location.pathname);
 
-        const initialPage = initialPages.find(({ path }) => location.pathname.includes(path));
+        const initialPage = initialPages
+            .filter(({ show }) => show)
+            .find(({ path }) => location.pathname.includes(path));
+
         if (initialPage != null) {
             setPages(pages.map((page) => ({...page, selected: page.path === initialPage.path})));
         }
