@@ -4,11 +4,10 @@ import { PreviewText } from "./preview-text";
 import { ImageComponent } from "./image";
 
 interface BlogSmallPreviewProps extends PostList {
-    index: number;
     onBlogClicked: (id: string) => void;
 };
 
-export const BlogPreviewComponent = ({ thumbnailUrl, title, onBlogClicked, id, index}: BlogSmallPreviewProps) => {
+export const BlogPreviewComponent = ({ thumbnailUrl, title, onBlogClicked, id}: BlogSmallPreviewProps) => {
     return (
         <TransitionPreviewButton className="flex gap-4 max-w-[1000px] h-[250px] w-full p-3 lg:p-0" onClick={() => onBlogClicked(id)}>
             <ImageComponent className="w-full h-full hidden lg:block" src={thumbnailUrl}/>

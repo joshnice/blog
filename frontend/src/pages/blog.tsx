@@ -29,7 +29,7 @@ export const BlogPage = () => {
         <PageContainer className="flex flex-col items-center justify-start gap-7">
             <PageTitleComponent title="Latest blog posts" />
             <div className="flex flex-col w-full gap-5">
-                {posts.map((post, index) => {
+                {posts.map((post) => {
                         return ( 
                             <BlogPreviewComponent 
                                 key={post.id} 
@@ -37,7 +37,6 @@ export const BlogPage = () => {
                                 onBlogClicked={handleBlogClicked} 
                                 title={post.title}
                                 thumbnailUrl={post.thumbnailUrl}
-                                index={index}
                             />
                         );
                     }
