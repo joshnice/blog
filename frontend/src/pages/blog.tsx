@@ -37,6 +37,9 @@ export const BlogPage = () => {
                                 onBlogClicked={handleBlogClicked} 
                                 title={post.title}
                                 thumbnailUrl={post.thumbnailUrl}
+                                description={post.description}
+                                date={post.date}
+
                             />
                         );
                     }

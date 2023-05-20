@@ -5,7 +5,7 @@ export async function getPosts(limit: number): Promise<DbPostList[] | undefined>
 
     const connection = await pool.getConnection();
     try {
-        const sql = `SELECT posts.id, posts.title, posts.thumbnail_url FROM posts ORDER BY posts.date desc LIMIT ?`;
+        const sql = `SELECT posts.id, posts.title, posts.thumbnail_url, posts.description, posts.date FROM posts ORDER BY posts.date desc LIMIT ?`;
         const [rows] = await connection.execute<DbPostList[]>(sql, [limit]);
         return rows;
     } catch(error) {

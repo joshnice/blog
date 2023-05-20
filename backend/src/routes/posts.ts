@@ -21,10 +21,10 @@ router.get("/:limit?", async (req, res) => {
 
     const signedPosts: PostList[] = [];
 
-    for await (const {id, title, thumbnail_url} of posts) {
+    for await (const {id, title, thumbnail_url, description, date} of posts) {
         const { bucketName, key } = urlToBucketAndKey(thumbnail_url);
-        const signedUrl = await s3Connection.getSignedUrlPromise("getObject", { Bucket: bucketName, Key: key, Expires: 3600 })
-        signedPosts.push({ id, title, thumbnailUrl: signedUrl });
+        const signedUrl = await s3Connection.getSignedUrlPromise("getObject", { Bucket: bucketName, Key: key, Expires: 3600 });
+        signedPosts.push({ id, title, thumbnailUrl: signedUrl, description, date: new Date(date) });
     }
 
     res.json(signedPosts);

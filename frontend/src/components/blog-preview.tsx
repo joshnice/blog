@@ -7,11 +7,11 @@ interface BlogSmallPreviewProps extends PostList {
     onBlogClicked: (id: string) => void;
 };
 
-export const BlogPreviewComponent = ({ thumbnailUrl, title, onBlogClicked, id}: BlogSmallPreviewProps) => {
+export const BlogPreviewComponent = ({ thumbnailUrl, title, onBlogClicked, id, description, date}: BlogSmallPreviewProps) => {
     return (
         <TransitionPreviewButton className="flex gap-4 max-w-[1000px] h-[250px] w-full p-3 lg:p-0" onClick={() => onBlogClicked(id)}>
             <ImageComponent className="w-full h-full hidden lg:block" src={thumbnailUrl}/>
-            <PreviewText title={title} description="Let's clear up some misconceptions surrounding EU privacy laws and look at why your privacy-friendly analytics is probably violating them." date="2 January" />
+            <PreviewText title={title} description={description} date={new Date(date).toLocaleDateString()} />
         </TransitionPreviewButton>
     )
 }
