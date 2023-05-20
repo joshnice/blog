@@ -27,6 +27,14 @@ export const NavigationBarComponent = ({ pages: initialPages }: NavigationBarPro
 
     const isMenuSelected = useMemo(() => location.pathname === menuPage.path, [location.pathname]);
 
+    const changeSelectedPage = (path: string) => {
+        const selected = pages.find((page) => page.selected);
+        if (selected?.path !== path) {
+            previousPageContext?.setPreviousPath(path);
+            setPages(pages.map((page) => ({...page, selected: page.path === path})));
+        }
+    }
+
     useEffect(() => {
         previousPageContext?.setPreviousPath(location.pathname);
 
@@ -39,9 +47,11 @@ export const NavigationBarComponent = ({ pages: initialPages }: NavigationBarPro
         }
     }, []);
 
+    useEffect(() => {
+        changeSelectedPage(location.pathname)
+    }, [location.pathname])
+
     const handlePageChange = (path: string) => {        
-        previousPageContext?.setPreviousPath(path);
-        setPages(pages.map((page) => ({...page, selected: page.path === path})));
         navigate(path);
     }
 
