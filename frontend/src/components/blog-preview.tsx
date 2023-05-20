@@ -2,27 +2,17 @@ import { PostList } from "@joshnice/types"
 import { TransitionPreviewButton } from "./preview-button-transition";
 import { PreviewText } from "./preview-text";
 import { ImageComponent } from "./image";
-import { useMemo } from "react";
 
 interface BlogSmallPreviewProps extends PostList {
     index: number;
     onBlogClicked: (id: string) => void;
 };
 
-const columnValues = [
-    "col-start-1 col-end-2  md:col-start-1 md:col-end-3",
-    "col-start-1 col-end-2 md:col-start-1 md:col-end-2",
-    "col-start-1 col-end-2 md:col-start-2 md:col-end-3",
-    "col-start-1 col-end-2 md:col-start-1 md:col-end-2",
-    "col-start-1 col-end-2 md:col-start-2 md:col-end-3"
-] as const;
-
 export const BlogPreviewComponent = ({ thumbnailUrl, title, onBlogClicked, id, index}: BlogSmallPreviewProps) => {
-    const gridValues = useMemo(() => columnValues[index], [index])
     return (
-        <TransitionPreviewButton className={gridValues} onClick={() => onBlogClicked(id)}>
-            <ImageComponent className="block w-full h-full" src={thumbnailUrl}/>
-            <PreviewText title={title} />
+        <TransitionPreviewButton className="flex gap-4 max-w-[1000px] h-[250px] w-full p-3 lg:p-0" onClick={() => onBlogClicked(id)}>
+            <ImageComponent className="w-full h-full hidden lg:block" src={thumbnailUrl}/>
+            <PreviewText title={title} description="Let's clear up some misconceptions surrounding EU privacy laws and look at why your privacy-friendly analytics is probably violating them." date="2 January" />
         </TransitionPreviewButton>
     )
 }

@@ -6,5 +6,5 @@ interface TransitionPreviewButtonProps {
     onClick: () => void;
 }
 
-export const TransitionPreviewButton = ({ children, className, onClick }: TransitionPreviewButtonProps) => <button className={`w-full h-full  relative  rounded-sm border-4 border-transparent hover:border-slate-300 hover:transition-[border] duration-500 hover:duration-500 hover:ease-[ease-out] ${className}`} onClick={onClick
+export const TransitionPreviewButton = ({ children, className, onClick }: TransitionPreviewButtonProps) => <button className={`relative rounded-sm border-4 border-transparent hover:border-slate-300 hover:transition-[border] duration-500 hover:duration-500 hover:ease-[ease-out] ${className}`} onClick={onClick
 }>{children}</button>

@@ -28,7 +28,7 @@ export const BlogPage = () => {
     return (
         <PageContainer className="flex flex-col items-center justify-start gap-7">
             <PageTitleComponent title="Latest blog posts" />
-            <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-preview-mobile md:grid-rows-preview w-full gap-5">
+            <div className="flex flex-col w-full gap-5">
                 {posts.map((post, index) => {
                         return ( 
                             <BlogPreviewComponent 

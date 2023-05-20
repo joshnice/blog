@@ -1,5 +1,7 @@
-export const PreviewText = ({ title }: { title: string }) => (
-    <div className="absolute bottom-0 h-10 w-full bg-slate-500/70 flex justify-start items-center">
-        <p className="absolute text-white pl-1">{title}</p>
+export const PreviewText = ({ title, description, date }: { title: string, description: string, date: string }) => (
+    <div className="flex justify-start items-start flex-col gap-3">
+        <h4 className="text-white text-4xl">{title}</h4>
+        <p className="text-white text-start text-lg">{description}</p>
+        <p className="text-white">{date}</p>
     </div>
 );
