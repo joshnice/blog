@@ -6,7 +6,6 @@ interface PostContentJson {
     type: string;
     alt?: string;
     caption?: string;
-    language?: string;
 }
 
 export function postContentJsonToTyped(postContentJson: string): PostContent[] {
@@ -21,10 +20,7 @@ function parseContentType(json: PostContentJson): PostContent {
         case "text":
             return { id: uuid(), type: "TEXT", content: json.content };
         case "code":
-            if (json.language == null) {
-                throw new Error("Code type was missing language property")
-            }
-            return { id: uuid(), type: "CODE", content: json.content, language: json.language };
+            return { id: uuid(), type: "CODE", content: json.content };
         case "image":
             if (json.alt == null) {
                 throw new Error("Code type was missing alt property")

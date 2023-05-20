@@ -9,6 +9,7 @@ import { BlogImageComponent } from "../components/blog-image";
 import { PageTitleComponent } from "../components/page-title";
 import { LoadingBarComponent } from "../components/loading-bar";
 import { PageContainer } from "../components/page-container";
+import { BlogCodeComponent } from "../components/blog-code";
 
 export const BlogPostPage = () => {
     const { id } = useParams();
@@ -27,6 +28,8 @@ export const BlogPostPage = () => {
                 return <BlogTextComponent text={postContent.content} />
             case "IMAGE":
                 return <BlogImageComponent imgUrl={postContent.content} alt={postContent.alt} caption={postContent.caption} />
+            case "CODE":
+                return <BlogCodeComponent gistUrl={postContent.content} />
             default:
                throw new Error("Content type was not handled");
         }
