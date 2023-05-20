@@ -29,7 +29,7 @@ export const BlogPostPage = () => {
             case "IMAGE":
                 return <BlogImageComponent imgUrl={postContent.content} alt={postContent.alt} caption={postContent.caption} />
             case "CODE":
-                return <BlogCodeComponent gistUrl={postContent.content} />
+                return <BlogCodeComponent gistUrl={postContent.content} caption="here is a caption" />
             default:
                throw new Error("Content type was not handled");
         }
