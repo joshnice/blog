@@ -1,9 +1,21 @@
 # Blog
 
-## Monorepo Structure
+My personal blog and website hosted at [joshliamnice.co.uk](joshliamnice.co.uk)
 
-common - shared code between front and back end, utility functions and modules to be published 
+## Stack
 
-front-end - react application
+Frontend - React
 
-back-end - express application
+Backend - Express with MySQL Database
+
+Infra - AWS and Planetscale
+
+
+## Getting Started
+
+`npm run dev` - runs frontend, backend and modules all locally 
+
+`npm run build` - builds frontend, backend and modules 
+
+`npm run test` - runs all tests
+
