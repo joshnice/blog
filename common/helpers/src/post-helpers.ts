@@ -20,13 +20,16 @@ function parseContentType(json: PostContentJson): PostContent {
         case "text":
             return { id: uuid(), type: "TEXT", content: json.content };
         case "code":
-            return { id: uuid(), type: "CODE", content: json.content };
+            if (json.caption == null) {
+                throw new Error("Code type is missing caption")
+            }
+            return { id: uuid(), type: "CODE", content: json.content, caption: json.caption };
         case "image":
             if (json.alt == null) {
-                throw new Error("Code type was missing alt property")
+                throw new Error("Image type was missing alt property")
             }
             if (json.caption == null) {
-                throw new Error("Code type was missing caption property")
+                throw new Error("Image type was missing caption property")
             }
             return { id: uuid(), type: "IMAGE", content: json.content, alt: json.alt, caption: json.caption };
         case "video":

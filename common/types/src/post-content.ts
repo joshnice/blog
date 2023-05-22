@@ -28,4 +28,5 @@ export interface PostContentVideo extends PostContentBase {
 
 export interface PostContentCode extends PostContentBase {
     type: "CODE";
+    caption: string;
 }
