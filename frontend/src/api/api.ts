@@ -1,3 +1,3 @@
 // const local = "http://localhost:3001"
-const remote = "https://2lvx5jtjdg.execute-api.us-east-1.amazonaws.com/dev";
+const remote = "https://api.joshliamnice.co.uk";
 export const apiUrl = remote;
