@@ -2,6 +2,7 @@ import express from "express";
 import serverless from "serverless-http";
 import { APIGatewayEvent, Context } from "aws-lambda";
 import dotenv from "dotenv";
+import { mw } from "request-ip";
 import { router as healthCheckRouter } from "./routes/health-check";
 import { router as postRouter } from "./routes/post";
 import { router as postsRouter } from "./routes/posts";
@@ -12,6 +13,7 @@ dotenv.config();
 export const app = express();
 
 app.use(cors());
+app.use(mw());
 
 app.use("/health_check", healthCheckRouter);
 app.use("/post", postRouter);

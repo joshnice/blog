@@ -2,10 +2,18 @@ import express from "express";
 import { getPost } from "../models/post";
 import { s3Connection } from "../aws/connection";
 import { addSignatureToS3Assets, postContentJsonToTyped, combinePostAndPostContent, urlToBucketAndKey } from "@joshnice/helpers";
+import { getBlogPostLimit, rateLimitCheck } from "../redis/rate-limits";
 
 export const router = express.Router();
 
 router.get("/:id", async (req, res) => {
+
+    const isAllowed = await rateLimitCheck(getBlogPostLimit, res, req);
+
+    if (!isAllowed) {
+        return;
+    }
+
     const post = await getPost(req.params.id);
 
     if (post == null) {

@@ -3,10 +3,17 @@ import { getPosts } from "../models/posts";
 import { urlToBucketAndKey } from "@joshnice/helpers";
 import { s3Connection } from "../aws/connection";
 import { PostList } from "@joshnice/types";
+import { getBlogPostsLimit, rateLimitCheck } from "../redis/rate-limits";
 
 export const router = express.Router();
 
 router.get("/:limit?", async (req, res) => {
+
+    const isAllowed = await rateLimitCheck(getBlogPostsLimit, res, req);
+
+    if (!isAllowed) {
+        return;
+    }
 
     const limit = req.params.limit ?? 8;
 
