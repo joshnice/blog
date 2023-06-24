@@ -1,0 +1,42 @@
+[
+    { 
+        "type": "title",
+        "content": "Creation of my blog"
+    },
+    {
+        "type": "text",
+        "content": "I know I said I was going to be positing at least once a week and not even two posts in and I have gone back on my word. Creating the blog was the first project I had finished outside of work and I was really happy with the outcome, I created something I am happy with and learnt a lot along the way. I don't know what happened after that, work got busier, the weather got nice which meant I was going out more and my productivity streak outside of work just fell flat on it's face. But quite possibly I was a little burnt out with this project and didn't have the drive to do the next thing on my list. But after a break of not doing as much coding outside of work I feel hungry to pick it back up a bit… maybe a little bit less than last time though."
+    }, 
+    {
+        "type": "image",
+        "content": "https://blog-cdn-0de55373-97ca-42ac-a4c4-6850209ab903.s3.eu-west-2.amazonaws.com/walking.jpg",
+        "alt": "Me on a walk",
+        "caption": "One of the many stunning walks I have been on while the weather has been nice"
+    },
+    {
+        "type": "text",
+        "content": "So this post is mainly a quick overview of how the blog was made, going over the frontend, backend and infrastructure that was used to create it. Further down the line I am going into a bit more depth into specific bits of each one, with all the problems I encountered and how to got around them. Also I will talk about alternative technologies I could of used and what persuaded me to make my final choices. One of my favourite things about being a software engineer is the amount of ways you can create something, all the different technologies you can use and even with a single technology there are many solutions!"
+    }, 
+    {
+        "type": "text",
+        "content": "Firstly the front-end, I made a mistake with what technologies I chose to use to create the the front-end. Being a mainly front-end focused for my job I should have take a different approach and used framework and libraries I had never used before have never used before. I could have chosen the  server side rendered approach with NextJS, however I picked good old reliable React. It was fine however it did make it slightly tedious towards the end. I did pick some libraries I had never used before to go alongside it. This included my new favourite thing and a must for upcoming projects… Tailwind. It made the CSS so easy and the syntax of doing CSS is so easy and intuitive. There isn't much state in my application but there was a number of HTTP requests, so React Query was the perfect choice. And for my build tool I used Vite which I was very impressed with as well. "
+    }, 
+    {
+        "type": "text",
+        "content": "Next up is infrastructure, I wanted to use mostly AWS for my infrastructure however I had to venture out of Amazon's grasps and found some interesting alternatives which I will definitely be using in the future! A quick overview of the setup, I was using API Gateway to be which would receive the API calls, once a request had been recevied a Node.js Lambda function would spin up and run my Express App, this would inturn fetch data from my RDS Database and assets from S3. This was all well and good, until my AWS bill came through and I was being charged for RDS sitting there idly. So I looked around and found an awesome alternative called PlanetScale which provide a great free tier of a serverless database. There was a few downsides of using this but for free I couldn't complain. The front-end and back-end were both built (manually, sorry no CI/CD just yet) and uploaded to S3, the front-end used CloudFront as the CDN to deliver the front-end."
+    },
+    {
+        "type": "image",
+        "content": "https://blog-cdn-0de55373-97ca-42ac-a4c4-6850209ab903.s3.eu-west-2.amazonaws.com/blog-arch.png",
+        "alt": "blog infrastructure",
+        "caption": "Simple overview of the infrastructure for my blog"
+    },
+    {
+        "type": "text",
+        "content": "Finally the back-end. I chose a combination I had never used before which was TypeScript with Express, yes I know Express is ancient tech, but I wanted something I was slightly familiar with and a stack which could be all TypeScript. With the back-end being TypeScript I could could share code and types with the front-end, which became really useful when making changes later to data structures later on. I paired this with a library called Serverless which allowed the express application to run on Lambda. Database wise, I was not really given a choice due to PlanetScale being my database provider, MySQL was what I had to work with, there was a few limitations with it but I will go into that in another day. For rate limiting and caching (which will be added in the future) I used a great service called UpStash which provided serverless Redis, again free of charge. "
+    },
+    {
+        "type": "text",
+        "content": "The next few posts will go into a bit more detail about each one for the front-end, back-end and infrastructure. And hopefully by then I will have also made some small tweaks to improve the way images are displayed and also a cold start lambda issue I seem to be having!  "
+    }
+]

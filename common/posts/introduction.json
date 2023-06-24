@@ -1,0 +1,28 @@
+[
+    { 
+        "type": "title",
+        "content": "A quick intro to my blog!"
+    },
+    {
+        "type": "text",
+        "content": "I guess my first blog post can be a quick introduction to who I am and what I am going to be posting so here it goes! I am Josh, I am a 25 year old software engineer who works at a local company called Iventis. We make mapping and scheduling software for events all around the world and I honestly think the software we are creating is going to be a staple for the events industry. I am really proud of the work we are doing, I really enjoy the work we do and I love working with everybody there. Personally I think enjoying your job is one of the most important things. If you can get up on a Monday and be happy you are going to work, I think you are winning at life! Sorry I kind of went off topic there, I kind of do that a lot!"
+    }, 
+    {
+        "type": "text",
+        "content": "The first question is why a blog? I want to venture more into the web development community and do more productive things outside of work hours. Not only will this expose me to new technologies but also I will be able to create apps and websites with new frameworks, services  libraries I have discovered. I wanted to document my journey as something to look back on and it may even help others when they come across the same issues I have faced. The first set of posts I will be doing will be about the creation of the blog. I have learnt lots of new and exciting things I want to share and also learned about a few new services along the way. But we can get into all of that another day."
+    }, 
+    {
+        "type": "text",
+        "content": "Another reason for starting a blog was because of two different people. Firstly was Alistair Campbell who is a former Labour politician and hosts a fantastic podcast called The Rest is Politics. He had been an avid memo taker while he was working in Downing Street and said it helped him process what had happened each day and why. The second person is a guy called Daniel Simmons, who is a fashion YouTuber and has recently launched a successful brand which is named after himself! It is one of my guilty pleasures to watch him. I don't always agree with his fashion choices but I do enjoy the lifestyle he portrays and the vibe he gives off. Again he suggested writing down your thoughts, ideas and experiences to understand what to do next and how you can improve. He also found it a good way to relax and said he really enjoyed it."
+    },
+    {
+        "type": "text",
+        "content": "Enough of the why more of the what! I'll be posting mostly about web development, either about technologies I am using or stuff that I am creating. I will venture outside the web development space and look at other technology and computer science related things. Something I really wanted to learn is Rust and I would love to share my experience of how I get on learning it and then using it in the future. From time to time I might write a post about sports, I love cricket and football and always have something to say about them. And finally I do love to travel, my girlfriend Ghaira, works in Dubai and I try and visit her as often as I can, so I'll keep you updated on the adventures we have together!"
+    }, 
+    {
+        "type": "image",
+        "content": "https://blog-cdn-0de55373-97ca-42ac-a4c4-6850209ab903.s3.eu-west-2.amazonaws.com/josh-ghaira-blog-one.jpg",
+        "alt": "Me and Ghaira",
+        "caption": "Me and Ghaira visiting the Sheikh Zayed Grand Mosque in Abu Dhabi"
+    }
+]
