@@ -28,7 +28,7 @@ export const BlogPage = () => {
     return (
         <PageContainer className="flex flex-col items-center justify-start gap-7">
             <PageTitleComponent title="Latest blog posts" />
-            <div className="flex flex-col w-full gap-5">
+            <div className="max-w-[1000px] grid lg:grid-cols-2 grid-cols-1 gap-3">
                 {posts.map((post) => {
                         return ( 
                             <BlogPreviewComponent 
