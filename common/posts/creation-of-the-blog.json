@@ -27,7 +27,7 @@
     },
     {
         "type": "image",
-        "content": "https://blog-cdn-0de55373-97ca-42ac-a4c4-6850209ab903.s3.eu-west-2.amazonaws.com/blog-arch.png",
+        "content": "https://blog-cdn-0de55373-97ca-42ac-a4c4-6850209ab903.s3.eu-west-2.amazonaws.com/Blog-arch.png",
         "alt": "blog infrastructure",
         "caption": "Simple overview of the infrastructure for my blog"
     },
