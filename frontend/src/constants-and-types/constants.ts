@@ -12,7 +12,7 @@ export const socialPage: Page = { path: "/socials", name: "Socials", selected: f
 export const pages: Page[] = [
     homePage,
     menuPage,
-    // aboutPage,
+    aboutPage,
     blogPage,
     // experiencePage,
     // projectsPage,
