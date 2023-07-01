@@ -7,7 +7,7 @@ import { HomePage } from "./home";
 import { BlogPostPage } from "./blog-post";
 import { MenuPage } from "./menu";
 import { PreviousPageClass, PreviousPageContext } from "../context/page-context";
-import { ProjectsPage } from "./project";
+import { ProjectsPage } from "./projects";
 
 export const RouterComponent = () => {
     return (
