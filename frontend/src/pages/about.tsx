@@ -3,6 +3,7 @@ import profilePicture from "../../assets/about-me.jpg";
 import { PageContainer } from "../components/page-container"
 import { blogPage, projectsPage } from "../constants-and-types/constants";
 import { Page } from "../components/navigation-bar";
+import { PageTitleComponent } from "../components/page-title";
 
 export const AboutPage = () => {
 
@@ -16,7 +17,7 @@ export const AboutPage = () => {
         <PageContainer>
             <div className="flex md:flex-row flex-col md:gap-2 gap-6">
                 <div className="flex flex-col gap-6 md:w-1/2 w-full md:pr-10">
-                    <h3 className="text-white text-3xl">A little bit about me</h3>
+                    <PageTitleComponent title="A little bit about me" />
                     <div className="flex flex-col gap-5">
                         <div className="flex flex-col gap-2">
                             <h4 className="text-white text-xl">Past</h4>
