@@ -18,7 +18,7 @@ export const ProjectsPage = () => (
 )
 
 const ProjectCard = ({ children, className }: { children: ReactNode, className?: string }) => (
-    <div className={`${className} h-28 w-7/12 rounded-lg flex items-center justify-center font-bold text-white bold`}>
+    <button type="button" className={`${className} h-28 w-7/12 rounded-lg flex items-center justify-center font-bold text-white bold hover:h-56 transition-all duration-500`}>
         {children}
-    </div>
+    </button>
 )
