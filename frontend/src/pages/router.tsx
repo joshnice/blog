@@ -2,11 +2,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { BlogPage } from "./blog";
 import { AboutPage } from "./about";
 import { NavigationBarComponent } from "../components/navigation-bar";
-import { aboutPage, blogPage, homePage, menuPage, pages } from "../constants-and-types/constants";
+import { aboutPage, blogPage, homePage, menuPage, pages, projectsPage } from "../constants-and-types/constants";
 import { HomePage } from "./home";
 import { BlogPostPage } from "./blog-post";
 import { MenuPage } from "./menu";
 import { PreviousPageClass, PreviousPageContext } from "../context/page-context";
+import { ProjectsPage } from "./project";
 
 export const RouterComponent = () => {
     return (
@@ -16,6 +17,7 @@ export const RouterComponent = () => {
                 <Routes>
                     <Route path={homePage.path} element={<HomePage />} />
                     <Route path={aboutPage.path} element={<AboutPage />} />
+                    <Route path={projectsPage.path} element={<ProjectsPage />} />
                     <Route path={blogPage.path} element={<BlogPage />} />
                     <Route path={`${blogPage.path}/:id`} element={<BlogPostPage />} />     
                     <Route path={menuPage.path} element={<MenuPage />} />                       

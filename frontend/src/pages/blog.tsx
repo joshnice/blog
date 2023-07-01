@@ -2,7 +2,7 @@ import { useQuery } from "react-query";
 import { useContext } from "react";
 import { getPosts } from "../api/api-functions";
 import { useNavigate } from "react-router-dom";
-import { PageTitleComponent } from "../components/page-title";
+import { Header } from "../components/page-text";
 import { BlogPreviewComponent } from "../components/blog-preview";
 import { LoadingBarComponent } from "../components/loading-bar";
 import { PageContainer } from "../components/page-container";
@@ -27,7 +27,7 @@ export const BlogPage = () => {
 
     return (
         <PageContainer className="flex flex-col items-center justify-start gap-7">
-            <PageTitleComponent title="Latest blog posts" />
+            <Header>Latest blog posts</Header>
             <div className="max-w-[1000px] grid lg:grid-cols-2 grid-cols-1 gap-3">
                 {posts.map((post) => {
                         return ( 

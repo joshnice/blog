@@ -15,6 +15,6 @@ export const pages: Page[] = [
     aboutPage,
     blogPage,
     // experiencePage,
-    // projectsPage,
+    projectsPage,
     // socialPage
 ];
