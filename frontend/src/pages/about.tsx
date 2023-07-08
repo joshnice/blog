@@ -4,6 +4,7 @@ import { PageContainer } from "../components/page-container"
 import { blogPage, projectsPage } from "../constants-and-types/constants";
 import { Page } from "../components/navigation-bar";
 import { Header, Link, SubHeader, Text } from "../components/page-text";
+import { Footer } from "../components/footer";
 
 export const AboutPage = () => {
 
@@ -15,8 +16,8 @@ export const AboutPage = () => {
 
     return (
         <PageContainer>
-            <div className="flex md:flex-row flex-col md:gap-2 gap-6">
-                <div className="flex flex-col gap-6 md:w-1/2 w-full md:pr-10">
+            <div className="flex lg:flex-row flex-col lg:gap-2 gap-6">
+                <div className="flex flex-col gap-6 lg:w-1/2 w-full lg:pr-10">
                     <Header>A little bit about me</Header>
                     <div className="flex flex-col gap-5">
                         <div className="flex flex-col gap-2">
@@ -40,10 +41,11 @@ export const AboutPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex align-center w-full md:w-1/2">
-                    <img src={profilePicture} alt="Josh smiling on a bridge" className="rounded-xl"/>
+                <div className="flex align-center self-center w-full sm:w-2/3 lg:w-1/2">
+                    <img src={profilePicture} alt="Josh smiling on a bridge" className="rounded-xl object-cover w-auto h-auto"/>
                 </div>
             </div>
+            <Footer />
         </PageContainer>
     );
 }
