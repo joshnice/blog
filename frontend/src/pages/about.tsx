@@ -4,7 +4,6 @@ import { PageContainer } from "../components/page-container"
 import { blogPage, projectsPage } from "../constants-and-types/constants";
 import { Page } from "../components/navigation-bar";
 import { Header, Link, SubHeader, Text } from "../components/page-text";
-import { Footer } from "../components/footer";
 
 export const AboutPage = () => {
 
@@ -45,7 +44,6 @@ export const AboutPage = () => {
                     <img src={profilePicture} alt="Josh smiling on a bridge" className="rounded-xl object-cover w-auto h-auto"/>
                 </div>
             </div>
-            <Footer />
         </PageContainer>
     );
 }

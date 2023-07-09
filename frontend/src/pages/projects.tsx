@@ -17,12 +17,14 @@ export const ProjectsPage = () => {
     }
 
     return (
-        <PageContainer className="flex flex-col gap-4">
-            <Header>Projects</Header>
-            <Text>Here is the projects I have worked on. Click on one to find out more about it, including the source code and where you can find it!</Text>
-            <div className="flex flex-col gap-4 items-center justify-center mt-2">
-                <ProjectCard className="bg-emerald-500" onClick={() => onProjectClicked("joshliamnice")}>joshliamnice</ProjectCard>
-                <ProjectCard className="bg-sky-900" onClick={() => onProjectClicked("castle")}>Castle Damp and Timber</ProjectCard>
+        <PageContainer>
+            <div className="flex flex-col gap-4">
+                <Header>Projects</Header>
+                <Text>Here is the projects I have worked on. Click on one to find out more about it, including the source code and where you can find it!</Text>
+                <div className="flex flex-col gap-4 items-center justify-center mt-2">
+                    <ProjectCard className="bg-emerald-500" onClick={() => onProjectClicked("joshliamnice")}>joshliamnice</ProjectCard>
+                    <ProjectCard className="bg-sky-900" onClick={() => onProjectClicked("castle")}>Castle Damp and Timber</ProjectCard>
+                </div>
             </div>
         </PageContainer>
     )

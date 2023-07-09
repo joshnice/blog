@@ -27,8 +27,8 @@ export const ProjectPage = () => {
     }
     
     return (
-        <PageContainer className="flex flex-col gap-6">
-
+        <PageContainer>
+            <div className="flex flex-col gap-6">
             <Header>{project.title}</Header>
 
             <div className="flex gap-6">
@@ -81,6 +81,7 @@ export const ProjectPage = () => {
                     </Text>
                 ))}
                 </div>
+            </div>
             </div>
         </PageContainer>
     )

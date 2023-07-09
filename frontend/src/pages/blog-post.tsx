@@ -39,12 +39,14 @@ export const BlogPostPage = () => {
     }
 
     return (
-        <PageContainer className="flex flex-col justify-start items-center p-2 gap-5">
-            {post.content.map((postContent) => (
-                <Fragment key={postContent.id}>
-                    {createBlogBlock(postContent)}
-                </Fragment>
-            ))}
+        <PageContainer>
+            <div className="flex flex-col justify-start items-center p-2 gap-5">
+                {post.content.map((postContent) => (
+                    <Fragment key={postContent.id}>
+                        {createBlogBlock(postContent)}
+                    </Fragment>
+                ))}
+            </div>
         </PageContainer>
     );
 }

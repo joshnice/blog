@@ -26,24 +26,26 @@ export const BlogPage = () => {
     }
 
     return (
-        <PageContainer className="flex flex-col items-center justify-start gap-7">
-            <Header>Latest blog posts</Header>
-            <div className="max-w-[1000px] grid lg:grid-cols-2 grid-cols-1 gap-3">
-                {posts.map((post) => {
-                        return ( 
-                            <BlogPreviewComponent 
-                                key={post.id} 
-                                id={post.id}
-                                onBlogClicked={handleBlogClicked} 
-                                title={post.title}
-                                thumbnailUrl={post.thumbnailUrl}
-                                description={post.description}
-                                date={post.date}
+        <PageContainer>
+            <div className="flex flex-col items-center justify-start gap-7">
+                <Header>Latest blog posts</Header>
+                <div className="max-w-[1000px] grid lg:grid-cols-2 grid-cols-1 gap-3">
+                    {posts.map((post) => {
+                            return ( 
+                                <BlogPreviewComponent 
+                                    key={post.id} 
+                                    id={post.id}
+                                    onBlogClicked={handleBlogClicked} 
+                                    title={post.title}
+                                    thumbnailUrl={post.thumbnailUrl}
+                                    description={post.description}
+                                    date={post.date}
 
-                            />
-                        );
-                    }
-                )}
+                                />
+                            );
+                        }
+                    )}
+                </div>
             </div>
         </PageContainer>
     )
