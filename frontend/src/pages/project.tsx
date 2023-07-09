@@ -1,23 +1,38 @@
-import {  useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import { PageContainer } from "../components/page-container";
-import { Header, SubHeader, Text } from "../components/page-text";
-import { useMemo } from "react";
+import { Header, Link, SubHeader, Text } from "../components/page-text";
+import { useContext, useMemo } from "react";
 import { Technology, projects } from "../constants-and-types/projects-types-and-constants";
+import { ImLink } from "react-icons/im";
+import { SiGithub } from "react-icons/si";
+import { blogPage } from "../constants-and-types/constants";
+import { PreviousPageContext } from "../context/page-context";
 
 
 export const ProjectPage = () => {
     const params = useParams();
-    const project = useMemo(() => projects.find((project) => project.id === params.name), [params.name])
+    const project = useMemo(() => projects.find((project) => project.id === params.name), [params.name]);
+
+    const navigate = useNavigate();
+    const previousPageContext = useContext(PreviousPageContext);
+
+    const handleBlogClicked = (blogId: string) => {
+        const path = `${blogPage.path}/${blogId}`
+        navigate(path);
+        previousPageContext?.setPreviousPath?.(path);
+    }
     
     if (project == null) {
         return <></>
     }
     
     return (
-        <PageContainer className="flex flex-col gap-4">
+        <PageContainer className="flex flex-col gap-6">
+
             <Header>{project.title}</Header>
+
             <div className="flex gap-6">
-                <div className="flex flex-col w-2/3">
+                <div className="flex flex-col gap-2 w-2/3">
                     <SubHeader>About</SubHeader>
                     <Text>{project.about}</Text>
                 </div>
@@ -28,18 +43,43 @@ export const ProjectPage = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                <SubHeader>Features</SubHeader>
-                {project.features.map((feature) => <Text key={feature}>{feature}</Text>)}
+
+            <div className="flex gap-6">
+
+                <div className="flex flex-col gap-4 w-2/3">
+                    <SubHeader>Features</SubHeader>
+                    {project.features.map((feature) => <Text key={feature}>{feature}</Text>)}
+                </div>
+
+                <div className="flex flex-col justify-start items-start gap-6 w-1/3">
+
+                    <div className="flex flex-col">
+                        <SubHeader>Links</SubHeader>
+                        <div className="flex items-center gap-2">
+                            <ImLink className="text-slate-300" />
+                            <Link href={project.links.project.link} newTab>{project.links.project.label}</Link>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <SiGithub className="text-slate-300" />
+                            <Link href={project.links.code.link} newTab>{project.links.code.label}</Link>         
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col">
+                        <SubHeader>Related blog posts</SubHeader>
+                        {project.blogPosts.map((post) => <Link onClick={() => handleBlogClicked(post.id)} newTab>{post.name}</Link>)}
+                    </div>     
+
+                </div>
             </div>
-            <div>
+            {/* <div >
                 <SubHeader>Technologies</SubHeader>
                 {project.technologies.filter(({ about }) => about != null).map((tech) => (
                 <Text key={tech.name}>
                     <span className="font-bold">{tech.name}</span> - {tech.about}
                 </Text>
                 ))}
-            </div>
+            </div> */}
         </PageContainer>
     )
 }
