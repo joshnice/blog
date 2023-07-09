@@ -48,12 +48,12 @@ export const ProjectPage = () => {
 
                 <div className="flex flex-col gap-4 w-2/3">
                     <SubHeader>Features</SubHeader>
-                    {project.features.map((feature) => <Text key={feature}>{feature}</Text>)}
+                    {project.features.map((feature) => <Text key={feature.name}> <span className="font-bold">{feature.name}</span> - {feature.about}</Text>)}
                 </div>
 
                 <div className="flex flex-col justify-start items-start gap-6 w-1/3">
 
-                    <div className="flex flex-col">
+                    <div className="flex flex-col gap-2">
                         <SubHeader>Links</SubHeader>
                         <div className="flex items-center gap-2">
                             <ImLink className="text-slate-300" />
@@ -65,21 +65,23 @@ export const ProjectPage = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col">
+                    <div className="flex flex-col gap-2">
                         <SubHeader>Related blog posts</SubHeader>
                         {project.blogPosts.map((post) => <Link onClick={() => handleBlogClicked(post.id)} newTab>{post.name}</Link>)}
                     </div>     
 
                 </div>
             </div>
-            {/* <div >
+            <div className="flex flex-col gap-6">
                 <SubHeader>Technologies</SubHeader>
+                <div className="flex flex-col gap-4">
                 {project.technologies.filter(({ about }) => about != null).map((tech) => (
-                <Text key={tech.name}>
-                    <span className="font-bold">{tech.name}</span> - {tech.about}
-                </Text>
+                    <Text key={tech.name}>
+                        <span className="font-bold">{tech.name}</span> - {tech.about}
+                    </Text>
                 ))}
-            </div> */}
+                </div>
+            </div>
         </PageContainer>
     )
 }
