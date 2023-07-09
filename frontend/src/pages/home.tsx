@@ -1,8 +1,9 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import { PageContainer } from "../components/page-container";
 import { useNavigate } from "react-router-dom";
 import { blogPage } from "../constants-and-types/constants";
 import { Header, Link, Text } from "../components/page-text";
+import { apiUrl } from "../api/api";
 
 export const HomePage: FunctionComponent = () => {
 
@@ -11,6 +12,11 @@ export const HomePage: FunctionComponent = () => {
     const onBlogClick = () => {
         navigate(blogPage.path);
     }
+
+    // Warm up lambda function
+    useEffect(() => {
+        fetch(`${apiUrl}/health_check`);
+    }, [])
 
     return (
         <PageContainer>
