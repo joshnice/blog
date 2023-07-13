@@ -1,6 +1,6 @@
 {
   "name": "@joshnice/helpers",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Package for general helpers ",
   "main": "dist/index.js",
   "scripts": {
