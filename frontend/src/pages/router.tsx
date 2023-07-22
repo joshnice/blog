@@ -2,13 +2,14 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { BlogPage } from "./blog";
 import { AboutPage } from "./about";
 import { NavigationBarComponent } from "../components/navigation-bar";
-import { aboutPage, blogPage, homePage, menuPage, pages, projectsPage } from "../constants-and-types/constants";
+import { aboutPage, blogPage, experiencePage, homePage, menuPage, pages, projectsPage } from "../constants-and-types/constants";
 import { HomePage } from "./home";
 import { BlogPostPage } from "./blog-post";
 import { MenuPage } from "./menu";
 import { PreviousPageClass, PreviousPageContext } from "../context/page-context";
 import { ProjectPage } from "./project";
 import { ProjectsPage } from "./projects";
+import { ExperiencePage } from "./experience";
 
 export const RouterComponent = () => {
 
@@ -23,6 +24,7 @@ export const RouterComponent = () => {
                     <Route path={projectsPage.path} element={<ProjectsPage />} />
                     <Route path={`${projectsPage.path}/:name`} element={<ProjectPage />}  />
                     <Route path={`${blogPage.path}/:id`} element={<BlogPostPage />} />     
+                    <Route path={experiencePage.path} element={<ExperiencePage />} />
                     <Route path={menuPage.path} element={<MenuPage />} />                       
                     <Route path="*" element={<p>Oops something has gone wrong!</p>} />
                 </Routes>
