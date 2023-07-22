@@ -13,6 +13,6 @@ export const pages: Page[] = [
     menuPage,
     aboutPage,
     blogPage,
-    experiencePage,
     projectsPage,
+    experiencePage,
 ];

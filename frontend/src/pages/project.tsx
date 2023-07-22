@@ -66,8 +66,12 @@ export const ProjectPage = () => {
                     </div>
 
                     <div className="flex flex-col gap-2">
-                        <SubHeader>Related blog posts</SubHeader>
-                        {project.blogPosts.map((post) => <Link key={post.id} onClick={() => handleBlogClicked(post.id)} newTab>{post.name}</Link>)}
+                        {project.blogPosts.length !== 0 && (
+                            <> 
+                                <SubHeader>Related blog posts</SubHeader>
+                                {project.blogPosts.map((post) => <Link key={post.id} onClick={() => handleBlogClicked(post.id)} newTab>{post.name}</Link>)}
+                            </>
+                        )}
                     </div>     
 
                 </div>
