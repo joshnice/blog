@@ -43,7 +43,7 @@ function parseContentType(json: PostContentJson): PostContent {
 export async function addSignatureToS3Assets(postContent: PostContent[], createSignature: (url: string) => Promise<string>): Promise<PostContent[]> {
     const signedContent: PostContent[] = [];
     for await (const contentSection of postContent) {
-        if (contentSection.type === "IMAGE" || contentSection.type === "VIDEO") {
+        if (contentSection.type === "IMAGE") {
             signedContent.push({
                 ...contentSection,
                 content: await createSignature(contentSection.content)

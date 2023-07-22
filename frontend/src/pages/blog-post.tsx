@@ -9,6 +9,7 @@ import { Header, Text } from "../components/page-text";
 import { LoadingBarComponent } from "../components/loading-bar";
 import { PageContainer } from "../components/page-container";
 import { BlogCodeComponent } from "../components/blog-code";
+import { BlogVideoComponent } from "../components/blog-video";
 
 export const BlogPostPage = () => {
     const { id } = useParams();
@@ -27,6 +28,8 @@ export const BlogPostPage = () => {
                 return <Text>{postContent.content}</Text>
             case "IMAGE":
                 return <BlogImageComponent imgUrl={postContent.content} alt={postContent.alt} caption={postContent.caption} />
+            case "VIDEO":
+                return <BlogVideoComponent embedId={postContent.content} />
             case "CODE":
                 return <BlogCodeComponent gistUrl={postContent.content} caption={postContent.caption} />
             default:

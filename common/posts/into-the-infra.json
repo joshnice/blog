@@ -1,0 +1,84 @@
+[
+    { 
+        "type": "title",
+        "content": "Into the infrastructure"
+    },
+    {
+        "type": "text",
+        "content": "This is going to be the first of three posts breaking down the making of my blog. Firstly we are going to look at the cloud infrastructure behind it, followed by a post about how I created the back-end and then finally the front-end. Before I started this I was quite a big novice when it came to cloud infrastructure. I knew about the big companies that provided different cloud services, these were Amazon Web Services (AWS), Google Cloud Platform (GCP) and Microsoft Azure Cloud. However apart from knowing their name I knew little about them and had only ever used AWS."
+    }, 
+    {
+        "type": "text",
+        "content": "I wanted my blog to be serverless, but why? What is so good about serverless and what even is it? Firstly lets address what it is, serverless is cloud computing on demand. For example, let's say you have created a REST API, when a user needs to get data from it, they will make a request and the servers your API is running on will start up and process the request. Once the process has finished the server will shut down. So in short the servers are only running while a request is being processed and additionally you are only paying for the servers while they are processing the API’s requests. This is compared to a more traditional way of having a server, where it is running constantly, again you are charged for the amount of time which it is running, in this case all the time."
+    }, 
+    {
+        "type": "text",
+        "content": "What services would I use to run a serverless API I hear you ask? With AWS you would use AWS Lambda functions, these are short lived functions which can run a range of different languages including PowerShell, TypeScript, NodeJS, Rust and many more. With AWS Lambda you get 1 million free requests each month, so for personal projects it is very unlikely to go over this (unless your project is a massive success of course). I decided that I wanted to run a whole express application on my Lambda function, I don’t really know if this is best practice or not but it seems to work quite well for now."
+    }, 
+    {
+        "type": "text",
+        "content": "If you want to run a server which is constantly running you could use EC2, it also has a free tier however this has to be a micro instance (can be a small instance for the first 12 months) and is limited to certain regions. In a different blog post I will explore why location can be important in cloud computing for reducing response times."
+    }, 
+    {
+        "type": "image",
+        "content": "https://blog-cdn-0de55373-97ca-42ac-a4c4-6850209ab903.s3.eu-west-2.amazonaws.com/lambda-ec2.png",
+        "alt": "AWS Lambda and EC2 logos",
+        "caption": "AWS Lambda and EC2 logos"
+    },
+    {
+        "type": "text",
+        "content": "So pricing isn't that much different right? Well kind of, if the micro EC2 instance is all you will ever need then great, however if your API has an increase in traffic you will need to configure it to scale which can be done with EC2 auto scaling groups. This will allow you to have more than one instance running at the same time and can also increase the size of your instances, however the size increase may go outside of the free-tier of and having more than one instance running at once will also eat into your free-tier time. Lambda scales differently, if your API gets an increase in traffic, AWS Lambda will scale by just running more of your functions at once."
+    }, 
+    {
+        "type": "text",
+        "content": "I need to mention an issue with some serverless architecture (something I am currently encountering) and it is very apparent with AWS Lambda. This is cold starts. A cold start is when a Lambda function has to be started as there is not a warm lambda function (a lambda function which is already running) to process the request, the function has to download the code and start a new execution environment which doesn't need to be done if there is a warm lambda function. Currently this is an issue with my blog and it can take up to 5 seconds to complete the request, if a cold start is encountered."
+    }, 
+    {
+        "type": "image",
+        "content": "https://blog-cdn-0de55373-97ca-42ac-a4c4-6850209ab903.s3.eu-west-2.amazonaws.com/cold-start.png",
+        "alt": "Cold starts vs warm start",
+        "caption": "Cold starts require additional steps before the execution of your code"
+    },
+    {
+        "type": "text",
+        "content": "There are a few more advantages and disadvantages for both approaches however I could go on all day about them, so for your sake I won't! I do think serverless is great, however it is not the solution all the time. For the small projects, I work on it is amazing but for bigger things it may cause more problems than it solves. Below is a great video on when serverless was not so good to use. "
+    }, 
+    {
+        "type": "video",
+        "content": "qQk94CjRvIs"
+    }, 
+    {
+        "type": "text",
+        "content": "AWS Lambda is great but I needed a service to take a user request and then start a Lambda function to process it. Amazon API Gateway is a great service for this, there are many different ways you can configure API gateway and the way I wanted to configure it I had the choice of two different configurations. Both of these were using the REST protocol. The first configuration was to create a resource and method for each route I would be using. A resource in my case would be a blog post or a user and a method would be the REST API methods (GET, POST, DELETE, PUT etc). However I wanted my Express application to handle the routing of the request, so instead I opted for creating a default route. This means when a request is sent it will always use the default route (also known as a proxy) and doesn't matter what the resource and method is. It meant my API gateway configuration was really easy once I had figured out how to create the default route. "
+    }, 
+    {
+        "type": "text",
+        "content": "The next decision I had to make was how I was going to store my data. There were a few options here, some far more viable than others. I could store all the data on the front end, this wasn't even a consideration it would not scale at all. Store all of the data in AWS S3 which is a CDN service where you can store all of your files and programmatically get them from other cloud services. This was more viable however would limit functionality later on, for example what about if I wanted to add comments to blog posts. The solution ideally had to involve a database, the choices were SQL or NoSQL. My preference here is a SQL, specifically a Postgres database but doesn’t mean it is the correct choice, the decision was more persuaded by the service it was running on and how familiar I was with the technology."
+    }, 
+    {
+        "type": "text",
+        "content": "So we know I needed to use a database but what service was I going to use? Amazon relational database service (RDS) was the simple answer, it is another AWS service and fits well with the stack I already have. To begin with I had a few issues connecting the database to my Lambda functions as I had not set the correct inbound rules for the database instance, once I got my head around that (with a little help from ChatGPT) I was able to create a connection from my lambda function to RDS. All was well until I stopped doing work on the blog for a couple of weeks. I then came back to a small AWS bill! Even though I had turned it off, AWS has a feature which after 7 days a database in RDS turns itself back on! This was not ideal and subsequently I started looking for a new cloud database provider, I really wanted the whole stack to be completely free. I had found a few alternatives which ticked some of the features I wanted, but not all of them. This is when I came across a Theo Browne YouTube video when he recommended having a look at PlanetScale."
+    }, 
+    {
+        "type": "image",
+        "content": "https://blog-cdn-0de55373-97ca-42ac-a4c4-6850209ab903.s3.eu-west-2.amazonaws.com/planet-scale.png",
+        "alt": "Cold starts vs warm start",
+        "caption": "Cold starts require additional steps before the execution of your code"
+    },
+    {
+        "type": "text",
+        "content": "So what is PlanetScale? It is a serverless cloud database provider which is built upon AWS and Vitess. So why not just use AWS? Well it is a lot cheaper, you pay per read and write instead of paying per database instance you are running. With PlanetScale's free tier you get 1 billion reads per month and 10 million writes. The downside for me is that I had to use MySQL instead of Postgres but the trade off in my opinion was worth it. There were a few other caveats such as not being able to create stored procedures or have foreign keys but this is well documented and good alternative solutions are provided (And the reasons for why you can't use them are quite valid). I set up my PlanetScale database in a few clicks and connected to it without a problem. "
+    }, 
+    {
+        "type": "text",
+        "content": "PlanetScale has a few really nice features that I want to use in the future, they have different branches of databases which mimics how branches work in Git. This would allow a developer to change a database schema without affecting another database, I could see this being really useful in development teams. They also have created an NPM library called @planetscale/database, it is a driver for serverless and edge databases. I will definitely be trying this out when I start using edge functions to serve my web applications. I also want to add it to my blog's API to see if it improves the response times from my API! "
+    }, 
+    {
+        "type": "text",
+        "content": "Simple storage service also known as Amazon S3 is another AWS service, this is what I used as my CDN. I kept all my images and blog posts (these were JSON documents) inside it and these were retrieved by my express application. S3 is very straightforward and is very easy to work with. The only configuration I needed to do was to create a different IAM role to ensure that my API only had read access to S3. Additionally I stored my front-end build in S3. "
+    }, 
+    {
+        "type": "text",
+        "content": "That was a deeper dive into the cloud infrastructure I used for my blog! All of this was configured in the dashboards of the services used. One of my future tasks is to create all of the AWS related services using the AWS CDK. However, as I wanted to get the blog up and running in a timely manner and quite frankly I had no idea what I was doing at the start, I thought it was best to use the management console so I could tinker and try out things without worrying about the coding side."
+    }
+]
