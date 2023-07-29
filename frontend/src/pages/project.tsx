@@ -2,16 +2,20 @@ import {  useNavigate, useParams } from "react-router-dom";
 import { PageContainer } from "../components/page-container";
 import { Header, Link, SubHeader, Text } from "../components/page-text";
 import { useContext, useMemo } from "react";
-import { Technology, projects } from "../constants-and-types/projects-types-and-constants";
+import { Technology } from "../constants-and-types/projects-types-and-constants";
 import { ImLink } from "react-icons/im";
 import { SiGithub } from "react-icons/si";
 import { blogPage } from "../constants-and-types/constants";
 import { PreviousPageContext } from "../context/page-context";
+import { useQuery } from "react-query";
+import { getProject } from "../api/api-functions";
+import { LoadingBarComponent } from "../components/loading-bar";
 
 
 export const ProjectPage = () => {
     const params = useParams();
-    const project = useMemo(() => projects.find((project) => project.id === params.name), [params.name]);
+
+    const { data: project, isLoading } = useQuery(["project", params.id], () => getProject(params.id));
 
     const navigate = useNavigate();
     const previousPageContext = useContext(PreviousPageContext);
@@ -22,8 +26,8 @@ export const ProjectPage = () => {
         previousPageContext?.setPreviousPath?.(path);
     }
     
-    if (project == null) {
-        return <></>
+    if (isLoading || project == null) {
+        return <LoadingBarComponent />
     }
     
     return (

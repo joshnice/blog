@@ -22,7 +22,7 @@ export const RouterComponent = () => {
                     <Route path={aboutPage.path} element={<AboutPage />} />
                     <Route path={blogPage.path} element={<BlogPage />} />
                     <Route path={projectsPage.path} element={<ProjectsPage />} />
-                    <Route path={`${projectsPage.path}/:name`} element={<ProjectPage />}  />
+                    <Route path={`${projectsPage.path}/:id`} element={<ProjectPage />}  />
                     <Route path={`${blogPage.path}/:id`} element={<BlogPostPage />} />     
                     <Route path={experiencePage.path} element={<ExperiencePage />} />
                     <Route path={menuPage.path} element={<MenuPage />} />                       

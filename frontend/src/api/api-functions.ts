@@ -1,4 +1,4 @@
-import { Post, PostList, ProjectList } from "@joshnice/types";
+import { Post, PostList, Project, ProjectList } from "@joshnice/types";
 import { apiUrl } from "./api";
 
 export async function getPosts(): Promise<PostList[]> {
@@ -15,6 +15,12 @@ export async function getPost(postId: string): Promise<Post> {
 
 export async function getProjects(): Promise<ProjectList[]> {
     const response = await fetch(`${apiUrl}/projects/`, { method: "get" });
-    const post = await response.json();
-    return post;
+    const projects = await response.json();
+    return projects;
+}
+
+export async function getProject(id?: string): Promise<Project> {
+    const response = await fetch(`${apiUrl}/project/${id}`, { method: "get" });
+    const project = await response.json();
+    return project;
 }
