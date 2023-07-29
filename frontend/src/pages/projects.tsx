@@ -4,6 +4,8 @@ import { Header, Text } from "../components/page-text";
 import { projectsPage } from "../constants-and-types/constants";
 import { useNavigate } from "react-router-dom";
 import { ProjectId, projects } from "../constants-and-types/projects-types-and-constants";
+import { useQuery } from "react-query";
+import { getProjects } from "../api/api-functions";
 
 export const ProjectsPage = () => {
 
@@ -15,6 +17,10 @@ export const ProjectsPage = () => {
             navigate({ pathname: `${projectsPage.path}/${selectedProject.id}`});
         }
     }
+
+    const {data: projectsApi } = useQuery(["projects"], getProjects);
+
+    console.log(projectsApi);
 
     return (
         <PageContainer>
