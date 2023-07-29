@@ -7,6 +7,7 @@ import { router as healthCheckRouter } from "./routes/health-check";
 import { router as postRouter } from "./routes/post";
 import { router as postsRouter } from "./routes/posts";
 import { router as projectsRouter } from "./routes/projects";
+import { router as projectRouter } from "./routes/project";
 import cors from "cors";
 
 dotenv.config();
@@ -20,6 +21,7 @@ app.use("/health_check", healthCheckRouter);
 app.use("/post", postRouter);
 app.use("/posts", postsRouter);
 app.use("/projects", projectsRouter);
+app.use("/project", projectRouter);
 
 app.use(express.json());
 
