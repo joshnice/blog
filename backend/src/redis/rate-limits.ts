@@ -26,6 +26,13 @@ export const healthCheckLimit = new Ratelimit({
     prefix: `${rateLimitPrefix}-healthCheck`,
 });
 
+export const getProjectsLimit = new Ratelimit({
+    redis: Redis.fromEnv(),
+    limiter: Ratelimit.slidingWindow(10, "60s"),
+    analytics: true,
+    prefix: `${rateLimitPrefix}-getProjects`
+});
+
 export async function rateLimitCheck(rateLimit: Ratelimit, res: Response<any,any>, req: Request): Promise<boolean> {
 
     const ip = req.clientIp;
