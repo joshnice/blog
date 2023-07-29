@@ -7,3 +7,4 @@ export * from "./src/post-list";
 export * from "./src/db-types/db-project-list";
 export * from "./src/project-list";
 export * from "./src/project";
+export * from "./src/db-types/db-project";
