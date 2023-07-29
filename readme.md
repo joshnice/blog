@@ -1,6 +1,6 @@
 # Blog
 
-My personal blog and website hosted at [joshliamnice.co.uk](joshliamnice.co.uk)
+My personal blog and website hosted at [www.joshliamnice.co.uk](https://www.joshliamnice.co.uk)
 
 ## Stack
 
