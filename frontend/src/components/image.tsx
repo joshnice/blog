@@ -2,10 +2,12 @@ import { ComponentProps, useState }  from "react";
 
 export const ImageComponent = (props: ComponentProps<"img">) => {
     const [loading, setLoading] = useState(true);
-    // const loading = true;
+
+    console.log("loading", loading);
+
     return (
-        <div className={props.className}>
-            {loading && <img className={"w-full h-full bg-slate-50 animate-pulse"} /> }
+        <div className={`${props.className} ${loading && "h-96 w-full"}`}>
+            {loading && <img className={"w-full h-96 bg-slate-50 animate-pulse"} /> }
             <img {...props} className={`w-full h-full ${loading ? "hidden": "block"}`} onLoad={() => setLoading(false)} />
         </div>
     )
