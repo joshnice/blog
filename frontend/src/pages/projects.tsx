@@ -3,24 +3,28 @@ import { PageContainer } from "../components/page-container";
 import { Header, Text } from "../components/page-text";
 import { projectsPage } from "../constants-and-types/constants";
 import { useNavigate } from "react-router-dom";
-import { ProjectId, projects } from "../constants-and-types/projects-types-and-constants";
 import { useQuery } from "react-query";
 import { getProjects } from "../api/api-functions";
+import { LoadingBarComponent } from "../components/loading-bar";
 
 export const ProjectsPage = () => {
 
     const navigate = useNavigate();
+
+    const {data: projects, isLoading } = useQuery(["projects"], getProjects);
     
-    const onProjectClicked = (name: ProjectId) => {
-        const selectedProject = projects.find((project) => project.id === name);
+    const onProjectClicked = (id: string) => {
+        const selectedProject = projects?.find((project) => project.id === id);
         if (selectedProject != null) {
             navigate({ pathname: `${projectsPage.path}/${selectedProject.id}`});
         }
     }
 
-    const {data: projectsApi } = useQuery(["projects"], getProjects);
+    console.log(projects);
 
-    console.log(projectsApi);
+    if (isLoading || projects == null) {
+        return <LoadingBarComponent />
+    }
 
     return (
         <PageContainer>
@@ -28,13 +32,28 @@ export const ProjectsPage = () => {
                 <Header>Projects</Header>
                 <Text>Here is the projects I have worked on. Click on one to find out more about it, including the source code and where you can find it!</Text>
                 <div className="flex flex-col gap-4 items-center justify-center mt-2">
-                    <ProjectCard className="bg-emerald-500" onClick={() => onProjectClicked("joshliamnice")}>joshliamnice</ProjectCard>
-                    <ProjectCard className="bg-sky-900" onClick={() => onProjectClicked("castle")}>Castle Damp and Timber</ProjectCard>
+                    {projects.map((project) => (
+                        <ProjectCard key={project.id} className={getProjectColour(project.name)} onClick={() => onProjectClicked(project.id)}>
+                            {project.name}
+                        </ProjectCard>
+                    ))}
                 </div>
             </div>
         </PageContainer>
     )
 }
+
+const getProjectColour = (name: string) => {
+    switch (name) {
+        case "joshliamnice":
+            return "bg-emerald-500";
+        case "Castle Damp & Timber":
+            return "bg-sky-900";
+        default: 
+            throw new Error("Project colour not handled")
+    }
+}
+
 const ProjectCard = ({ children, className, onClick }: { children: ReactNode, onClick: () => void; className?: string }) => (
     <button onClick={onClick} type="button" className={`${className} h-28 w-7/12 rounded-lg flex items-center justify-center font-bold text-white bold hover:h-56 transition-all duration-500`}>
         {children}

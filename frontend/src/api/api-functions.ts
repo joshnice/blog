@@ -13,7 +13,7 @@ export async function getPost(postId: string): Promise<Post> {
     return post;
 }
 
-export async function getProjects(): Promise<ProjectList> {
+export async function getProjects(): Promise<ProjectList[]> {
     const response = await fetch(`${apiUrl}/projects/`, { method: "get" });
     const post = await response.json();
     return post;
