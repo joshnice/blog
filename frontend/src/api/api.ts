@@ -1,3 +1,5 @@
-const local = "http://localhost:3001"
-// const remote = "https://api.joshliamnice.co.uk";
-export const apiUrl = local;
+// Remove
+export const apiUrl = "https://api.joshliamnice.co.uk"
+
+// Local
+// export const apiUrl = "http://localhost:3001"
