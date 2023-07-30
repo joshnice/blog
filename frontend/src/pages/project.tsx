@@ -37,7 +37,7 @@ export const ProjectPage = () => {
 
             <div className="flex gap-6">
                 <div className="flex flex-col gap-2 w-2/3">
-                    <SubHeader>About</SubHeader>
+                    <SubHeader>About & Motivation</SubHeader>
                     <Text>{project.about}</Text>
                 </div>
                 <div className="flex flex-col gap-2 w-1/3">
