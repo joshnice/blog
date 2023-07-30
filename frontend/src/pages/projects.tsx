@@ -55,7 +55,7 @@ const getProjectColour = (name: string) => {
 }
 
 const ProjectCard = ({ children, className, onClick }: { children: ReactNode, onClick: () => void; className?: string }) => (
-    <button onClick={onClick} type="button" className={`${className} h-28 w-7/12 rounded-lg flex items-center justify-center font-bold text-white bold hover:h-56 transition-all duration-500`}>
+    <button onClick={onClick} type="button" className={`${className} h-28 w-full lg:w-7/12 rounded-lg flex items-center justify-center font-bold text-white bold hover:h-56 transition-all duration-500`}>
         {children}
     </button>
 )
