@@ -1,43 +1,33 @@
 {
   "title": "Castle Damp and Timber",
-  "about": "Non ut enim sit sint. Consectetur consectetur deserunt tempor ea. Non cupidatat amet irure minim magna ut et. Consectetur enim elit voluptate aliquip fugiat. Reprehenderit laboris aliquip irure ea commodo nulla aute deserunt non cupidatat.Incididunt amet aliqua nostrud ullamco sunt. Consectetur Lorem id ut minim irure et tempor laboris sint nisi anim nisi dolore labore. Ut ipsum veniam ex est voluptate. Proident dolor dolor consectetur aliqua cupidatat dolore.",
+  "about": "The project was to update an existing website from scratch for a company called Castle Damp and Timber. This was the first project where I was responsible for everything to do with the project. Firstly, I had to design the user interface, this process included gathering user requirements and getting inspiration from other websites. After that I produced mobile and desktop designs and then worked with the client to refine them to their liking. I then created the website using just vanilla HTML, CSS and JavaScript and created a simple contact us form, on completion it would send an email to the company owner. A limitation of this project was it had to be search engine optimised so therefore the traditional frameworks of React, Angular or Vue couldn't be used.",
   "technologies": [
-    { "name": "react", "type": "frontend" },
-    { "name": "express", "type": "backend" },
-    {
-      "name": "AWS Lambda",
-      "about": "Exercitation incididunt ipsum mollit exercitation. Cupidatat aute est do enim. Exercitation nisi sunt veniam deserunt eu. Consequat deserunt veniam tempor velit esse adipisicing occaecat eiusmod. Esse aliqua ad sit anim pariatur sint quis eu cillum ut. Labore duis aute laborum ad occaecat.",
-      "type": "infra"
-    },
-    {
-      "name": "TailwindCSS",
-      "type": "frontend",
-      "about": "Sint laborum tempor cillum consequat nostrud nostrud laboris sit commodo incididunt. Officia consectetur anim id incididunt sit consequat proident id aliqua ipsum nisi occaecat. Nisi ipsum nostrud pariatur id ullamco exercitation minim ea officia laborum labore est velit Lorem. Ut cillum occaecat voluptate minim dolor labore exercitation culpa cillum tempor. Nostrud elit in adipisicing commodo amet voluptate voluptate velit cupidatat velit nostrud quis ad irure."
-    },
-    { "name": "PlanetScale", "type": "infra" },
-    { "name": "MySQL", "type": "backend" },
-    { "name": "Vite", "type": "frontend" },
-    { "name": "TypeScript", "type": "frontend" }
+    { "name": "HTML", "type": "frontend" },
+    { "name": "CSS", "type": "frontend" },
+    { "name": "JavaScript", "type": "frontend" },
+    { "name": "emailJS", "type": "backend" },
+    { "name": "animejs", "type": "frontend", "about": "was the design tool I used to create the iterative designs for the project. To help with the designs I created design boards with examples of user interfaces that I thought would work well on other websites. Adobe XD allowed me to have all of these designs next to each other so I could compare them and take inspiration from them. Using a tool like adobe xd also allowed for prototyping so I could test the flow of the site I was making to ensure that information was easy to find." },
+    { "name": "Adobe XD", "type": "frontend", "about": "was the animation library I used for the project. It was lightweight and easy to use, it allowed me to make custom animations for different parts of the site such as the menu and for certain buttons which the user could press and find more information. As the menu acted differently depending on the user screen size, AnimeJs helped me handle the different animations that were needed." }
   ],
   "features": [
     {
-      "name": "Feature 1",
-      "about": "Eiusmod elit adipisicing sit ipsum eu id cupidatat mollit sint. Sint quis cillum in ad ut non pariatur anim qui non ex laboris esse nostrud. Ullamco ex Lorem et consequat sint ipsum anim. Ex laboris velit adipisicing et quis aute est. Enim elit nostrud nostrud anim culpa aute. Incididunt ut pariatur incididunt ad Lorem enim enim ipsum est esse cillum consequat voluptate."
+      "name": "Contact us",
+      "about": "Basic contact us page where the user of the site has to fill out a short form and then can submit a message. The form would take all the data and create an email which would be sent to the owner of the company. In addition there was good visual feedback in the form to see what inputs were filled in incorrectly and a notification on success or failure of the submission."
     },
     {
-      "name": "Feature 2",
-      "about": "Eiusmod elit adipisicing sit ipsum eu id cupidatat mollit sint. Sint quis cillum in ad ut non pariatur anim qui non ex laboris esse nostrud. Ullamco ex Lorem et consequat sint ipsum anim. Ex laboris velit adipisicing et quis aute est. Enim elit nostrud nostrud anim culpa aute. Incididunt ut pariatur incididunt ad Lorem enim enim ipsum est esse cillum consequat voluptate."
+      "name": "UX/UI",
+      "about": "The most important part of this project was to ensure that the user could access all the information they needed easily and quickly and ensuring that the content adapted to the user's screen size. A good mobile design was achieved by doing a mobile first approach, it was also easy to work from a mobile design and make the appropriate changes to make it usable on the desktop. Animations were a key part of making the website have a good user experience and they were implemented using animeJS."
     }
   ],
   "blogPosts": [],
   "links": {
     "code": {
-      "link": "https://github.com/joshnice/blog",
+      "link": "https://github.com/joshnice/castle",
       "label": "Source code"
     },
     "project": {
-      "link": "https://www.joshliamnice.co.uk",
-      "label": "www.joshliamnice.co.uk"
+      "link": "http://f8cea3fd-ee3b-45a1-8c93-d094bf566406.s3-website.eu-west-2.amazonaws.com/",
+      "label": "www.castledampandtimber.co.uk"
     }
   }
 }

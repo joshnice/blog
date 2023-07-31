@@ -1,18 +1,18 @@
 {
   "title": "joshliamnice - blog & website",
-  "about": "Non ut enim sit sint. Consectetur consectetur deserunt tempor ea. Non cupidatat amet irure minim magna ut et. Consectetur enim elit voluptate aliquip fugiat. Reprehenderit laboris aliquip irure ea commodo nulla aute deserunt non cupidatat.Incididunt amet aliqua nostrud ullamco sunt. Consectetur Lorem id ut minim irure et tempor laboris sint nisi anim nisi dolore labore. Ut ipsum veniam ex est voluptate. Proident dolor dolor consectetur aliqua cupidatat dolore.",
+  "about": "At the start of 2023 I thought of a few goals that I wanted to achieve by the end of the year, one of these was to be more productive with my spare time and start to achieve a deeper understanding of the web development technologies. A great way to get started was to create my own personal website and a blog so I could document the process of doing so. The project's goal was to let me set up something from scratch where I do all the front-end, back-end and set up of the cloud services. The website was to tell users who I am and what I have been up to with blog posts and showing projects I have worked on. Additionally I wanted to write about things I found interesting but not just in web development, any topic I found interesting. Personally, I think writing about something you have learnt deepens your understanding of that topic and strengthens your knowledge.",
   "technologies": [
     { "name": "react", "type": "frontend" },
     { "name": "express", "type": "backend" },
     {
       "name": "AWS Lambda",
-      "about": "Exercitation incididunt ipsum mollit exercitation. Cupidatat aute est do enim. Exercitation nisi sunt veniam deserunt eu. Consequat deserunt veniam tempor velit esse adipisicing occaecat eiusmod. Esse aliqua ad sit anim pariatur sint quis eu cillum ut. Labore duis aute laborum ad occaecat.",
+      "about": "Lambda had a pivotal role in the project succeeding. It allowed me to run the API for the project, which was a small Express application in a serverless architecture. Additionally if the site should experience high traffic it should be able to deal with it with minimum disruption. It worked great integrating with the PlanetScale database and processes most requests very quickly. The only issue that has arose has been cold start times, to address this I had implemented a Lambda warm up function when the user has first landed on the site, additional I will be looking at CloudFlare's workers to see if the API can be ran on the edge, which would negate any cold start issues.",
       "type": "infra"
     },
     {
       "name": "TailwindCSS",
       "type": "frontend",
-      "about": "Sint laborum tempor cillum consequat nostrud nostrud laboris sit commodo incididunt. Officia consectetur anim id incididunt sit consequat proident id aliqua ipsum nisi occaecat. Nisi ipsum nostrud pariatur id ullamco exercitation minim ea officia laborum labore est velit Lorem. Ut cillum occaecat voluptate minim dolor labore exercitation culpa cillum tempor. Nostrud elit in adipisicing commodo amet voluptate voluptate velit cupidatat velit nostrud quis ad irure."
+      "about": "My opinion on Tailwind has completely changed over the course of completing this project and is now an important library for any project I do. If you are not using Tailwind you should, it makes CSS so easy and quick to do. In addition you can see every style being applied right in front of you, no looking around your codebase to find the class you need to change. Its config gives you all the flexibility you need and is an extremely well documented library with a great VSCode extension."
     },
     { "name": "PlanetScale", "type": "infra" },
     { "name": "MySQL", "type": "backend" },
@@ -21,18 +21,21 @@
   ],
   "features": [
     {
-      "name": "Feature 1",
-      "about": "Eiusmod elit adipisicing sit ipsum eu id cupidatat mollit sint. Sint quis cillum in ad ut non pariatur anim qui non ex laboris esse nostrud. Ullamco ex Lorem et consequat sint ipsum anim. Ex laboris velit adipisicing et quis aute est. Enim elit nostrud nostrud anim culpa aute. Incididunt ut pariatur incididunt ad Lorem enim enim ipsum est esse cillum consequat voluptate."
+      "name": "Blog",
+      "about": " wanted the blog to integrate seamlessly into my website (hence why I didn't use something like Medium) and also found it very enjoyable and satisfying to build. It is quite a simple part of the site for the user, where they can select a blog post from the list and then view them. The blog posts consist of text, images, videos and code snippets, this was the most challenging part making it flexible enough that I would never have to change any code in the future. Something I haven't implemented yet and is coming shortly in the future is the ability to search for different posts."
     },
     {
       "name": "Feature 2",
-      "about": "Eiusmod elit adipisicing sit ipsum eu id cupidatat mollit sint. Sint quis cillum in ad ut non pariatur anim qui non ex laboris esse nostrud. Ullamco ex Lorem et consequat sint ipsum anim. Ex laboris velit adipisicing et quis aute est. Enim elit nostrud nostrud anim culpa aute. Incididunt ut pariatur incididunt ad Lorem enim enim ipsum est esse cillum consequat voluptate."
+      "about": "This was a last minute addition to the site. It was not planned to have its own backend routes to fetch data. However once I got into the design phase of it, I got carried away once I had sketched out a design I realised that the amount of content I wanted to show couldn't be stored on the front-end. The projects page shows a list of projects I have worked on and by clicking on one of these takes you to that projects page (like this one you are on) which has details about why and what it is, the main feature, technologies I have used to create it. In the future I was also hoping for a design section so you can see the designs I also produced for it!"
     }
   ],
   "blogPosts": [
     {
       "id": "8580409a-0211-413e-a19f-2e8df752f8af",
       "name": "Creation of my blog"
+    },     {
+      "id": "449af6ec-325e-4be3-aab6-99e383e46571",
+      "name": "Into the infrastructure"
     }
   ],
   "links": {
