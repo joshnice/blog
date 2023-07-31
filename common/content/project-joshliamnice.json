@@ -25,7 +25,7 @@
       "about": " wanted the blog to integrate seamlessly into my website (hence why I didn't use something like Medium) and also found it very enjoyable and satisfying to build. It is quite a simple part of the site for the user, where they can select a blog post from the list and then view them. The blog posts consist of text, images, videos and code snippets, this was the most challenging part making it flexible enough that I would never have to change any code in the future. Something I haven't implemented yet and is coming shortly in the future is the ability to search for different posts."
     },
     {
-      "name": "Feature 2",
+      "name": "Projects",
       "about": "This was a last minute addition to the site. It was not planned to have its own backend routes to fetch data. However once I got into the design phase of it, I got carried away once I had sketched out a design I realised that the amount of content I wanted to show couldn't be stored on the front-end. The projects page shows a list of projects I have worked on and by clicking on one of these takes you to that projects page (like this one you are on) which has details about why and what it is, the main feature, technologies I have used to create it. In the future I was also hoping for a design section so you can see the designs I also produced for it!"
     }
   ],
