@@ -17,7 +17,9 @@
     { "name": "PlanetScale", "type": "infra", "about": "For those who don't know, PlanetScale is a serverless database provider. I previously only had experience with Postgres databases and PlanetScale only provides MySQL databases, however creating tables, inserting data and querying a MySQL database is similar to Postgres and therefore the learning process was quite simple. PlanetScale makes it really simple to connect to from the Express application and from the limited usage I have had response times are very quick." },
     { "name": "MySQL", "type": "backend" },
     { "name": "Vite", "type": "frontend" },
-    { "name": "TypeScript", "type": "frontend" }
+    { "name": "TypeScript", "type": "frontend" },
+    { "name": "API Gateway", "type": "infra" },
+    { "name": "Upstash", "type": "backend" }
   ],
   "features": [
     {
@@ -26,7 +28,7 @@
     },
     {
       "name": "Projects",
-      "about": "TDuring the design phase I got carried away with this page, once I had sketched out a design I realised that the amount of content I wanted to show couldn't realistically be stored on just the front-end and therefore the API was changed to accommodate for it. The projects page shows a list of projects I have worked on and by clicking on one of these takes you to that projects page (like this one you are on) which has details about why and what it is, the main feature, technologies I have used to create it."
+      "about": "During the design phase I got carried away with this page, once I had sketched out a design I realised that the amount of content I wanted to show couldn't realistically be stored on just the front-end and therefore the API was changed to accommodate for it. The projects page shows a list of projects I have worked on and by clicking on one of these takes you to that projects page (like this one you are on) which has details about why and what it is, the main feature, technologies I have used to create it."
     }
   ],
   "blogPosts": [
