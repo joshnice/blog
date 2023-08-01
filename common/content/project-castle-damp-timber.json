@@ -1,13 +1,13 @@
 {
   "title": "Castle Damp and Timber",
-  "about": "The project was to update an existing website from scratch for a company called Castle Damp and Timber. This was the first project where I was responsible for everything to do with the project. Firstly, I had to design the user interface, this process included gathering user requirements and getting inspiration from other websites. After that I produced mobile and desktop designs and then worked with the client to refine them to their liking. I then created the website using just vanilla HTML, CSS and JavaScript and created a simple contact us form, on completion it would send an email to the company owner. A limitation of this project was it had to be search engine optimised so therefore the traditional frameworks of React, Angular or Vue couldn't be used.",
+  "about": "This project was to update an old and outdated website with a more modern one for a company called Castle Damp and Timber. Firstly, I had to design the user interface, this process included gathering user requirements and getting inspiration from other websites. After that I produced mobile and desktop designs and then worked with the client to refine them to their liking. I then created the website using vanilla HTML, CSS and JavaScript.",
   "technologies": [
     { "name": "HTML", "type": "frontend" },
     { "name": "CSS", "type": "frontend" },
     { "name": "JavaScript", "type": "frontend" },
     { "name": "emailJS", "type": "backend" },
-    { "name": "animejs", "type": "frontend", "about": "was the design tool I used to create the iterative designs for the project. To help with the designs I created design boards with examples of user interfaces that I thought would work well on other websites. Adobe XD allowed me to have all of these designs next to each other so I could compare them and take inspiration from them. Using a tool like adobe xd also allowed for prototyping so I could test the flow of the site I was making to ensure that information was easy to find." },
-    { "name": "Adobe XD", "type": "frontend", "about": "was the animation library I used for the project. It was lightweight and easy to use, it allowed me to make custom animations for different parts of the site such as the menu and for certain buttons which the user could press and find more information. As the menu acted differently depending on the user screen size, AnimeJs helped me handle the different animations that were needed." }
+    { "name": "animejs", "type": "frontend", "about": "was the animation library I used for the project. It was lightweight and easy to use, it allowed me to make custom animations for different parts of the site such as the menu and for certain buttons which the user could press and find more information. As the menu acted differently depending on the user screen size, AnimeJs helped me handle the different animations that were needed." },
+    { "name": "Adobe XD", "type": "frontend", "about": "helped with the designing the site, it allowed me to create design boards with examples of user interfaces that I thought would work well on other websites. Adobe XD allowed me to have all of these designs next to each other so I could compare them and take inspiration from them. Using a tool like Adobe XD also allowed for prototyping so I could test the flow of the site I was making to ensure that information was easy to find." }
   ],
   "features": [
     {
@@ -16,7 +16,7 @@
     },
     {
       "name": "UX/UI",
-      "about": "The most important part of this project was to ensure that the user could access all the information they needed easily and quickly and ensuring that the content adapted to the user's screen size. A good mobile design was achieved by doing a mobile first approach, it was also easy to work from a mobile design and make the appropriate changes to make it usable on the desktop. Animations were a key part of making the website have a good user experience and they were implemented using animeJS."
+      "about": "The most important part of this project was to ensure that the user could access all the information they needed easily and quickly and ensuring that the content adapted to the user's screen size. A good mobile design was achieved by doing a mobile first approach, it was also easy to work from a mobile design and make the appropriate changes to make it usable on the desktop."
     }
   ],
   "blogPosts": [],

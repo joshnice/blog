@@ -1,20 +1,20 @@
 {
   "title": "joshliamnice - blog & website",
-  "about": "At the start of 2023 I thought of a few goals that I wanted to achieve by the end of the year, one of these was to be more productive with my spare time and start to achieve a deeper understanding of the web development technologies. A great way to get started was to create my own personal website and a blog so I could document the process of doing so. The project's goal was to let me set up something from scratch where I do all the front-end, back-end and set up of the cloud services. The website was to tell users who I am and what I have been up to with blog posts and showing projects I have worked on. Additionally I wanted to write about things I found interesting but not just in web development, any topic I found interesting. Personally, I think writing about something you have learnt deepens your understanding of that topic and strengthens your knowledge.",
+  "about": "The project's goal was to let me set up something from scratch where I do all the front-end, back-end and set up of the cloud services. This would expose me to technologies I haven't used much before. The website was to tell users who I am and what I have been up to with blog posts and showcasing projects I have worked on. Additionally I wanted to write about things I found interesting but not just in web development, any topic I found interesting. Personally, I think writing about something you have learnt deepens your understanding of that topic and strengthens your knowledge.",
   "technologies": [
     { "name": "react", "type": "frontend" },
     { "name": "express", "type": "backend" },
     {
       "name": "AWS Lambda",
-      "about": "Lambda had a pivotal role in the project succeeding. It allowed me to run the API for the project, which was a small Express application in a serverless architecture. Additionally if the site should experience high traffic it should be able to deal with it with minimum disruption. It worked great integrating with the PlanetScale database and processes most requests very quickly. The only issue that has arose has been cold start times, to address this I had implemented a Lambda warm up function when the user has first landed on the site, additional I will be looking at CloudFlare's workers to see if the API can be ran on the edge, which would negate any cold start issues.",
+      "about": "Lambda allowed for the API, which was a small Express application, to run in a serverless architecture. This had the added benefit of if the site should experience high traffic it should be able to deal with it with minimum disruption.. The only issue that has arose has been cold start times, to address this I had implemented a Lambda warm up function when the user has first landed on the site, additionally I will look at other solutions in the future.",
       "type": "infra"
     },
     {
       "name": "TailwindCSS",
       "type": "frontend",
-      "about": "My opinion on Tailwind has completely changed over the course of completing this project and is now an important library for any project I do. If you are not using Tailwind you should, it makes CSS so easy and quick to do. In addition you can see every style being applied right in front of you, no looking around your codebase to find the class you need to change. Its config gives you all the flexibility you need and is an extremely well documented library with a great VSCode extension."
+      "about": "If you are not using Tailwind you should, it makes CSS so easy and quick to do. In addition you can see every style being applied right in front of you, no looking around your codebase to find the class you need to change. Its config gives you all the flexibility you need and is an extremely well documented library with a great VSCode extension."
     },
-    { "name": "PlanetScale", "type": "infra" },
+    { "name": "PlanetScale", "type": "infra", "about": "For those who don't know, PlanetScale is a serverless database provider. I previously only had experience with Postgres databases and PlanetScale only provides MySQL databases, however creating tables, inserting data and querying a MySQL database is similar to Postgres and therefore the learning process was quite simple. PlanetScale makes it really simple to connect to from the Express application and from the limited usage I have had response times are very quick." },
     { "name": "MySQL", "type": "backend" },
     { "name": "Vite", "type": "frontend" },
     { "name": "TypeScript", "type": "frontend" }
@@ -22,11 +22,11 @@
   "features": [
     {
       "name": "Blog",
-      "about": " wanted the blog to integrate seamlessly into my website (hence why I didn't use something like Medium) and also found it very enjoyable and satisfying to build. It is quite a simple part of the site for the user, where they can select a blog post from the list and then view them. The blog posts consist of text, images, videos and code snippets, this was the most challenging part making it flexible enough that I would never have to change any code in the future. Something I haven't implemented yet and is coming shortly in the future is the ability to search for different posts."
+      "about": "I wanted the blog to integrate seamlessly into my website and ensure visitors didn't have to go to an external site. It is quite a simple part of the site for the user, where they can select a blog post from the list and then view them. The blog posts consist of text, images, videos and code snippets, this was the most challenging part making it flexible enough that I would never have to change any code in the future."
     },
     {
       "name": "Projects",
-      "about": "This was a last minute addition to the site. It was not planned to have its own backend routes to fetch data. However once I got into the design phase of it, I got carried away once I had sketched out a design I realised that the amount of content I wanted to show couldn't be stored on the front-end. The projects page shows a list of projects I have worked on and by clicking on one of these takes you to that projects page (like this one you are on) which has details about why and what it is, the main feature, technologies I have used to create it. In the future I was also hoping for a design section so you can see the designs I also produced for it!"
+      "about": "TDuring the design phase I got carried away with this page, once I had sketched out a design I realised that the amount of content I wanted to show couldn't realistically be stored on just the front-end and therefore the API was changed to accommodate for it. The projects page shows a list of projects I have worked on and by clicking on one of these takes you to that projects page (like this one you are on) which has details about why and what it is, the main feature, technologies I have used to create it."
     }
   ],
   "blogPosts": [
