@@ -1,6 +1,6 @@
 {
   "name": "@joshnice/types",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "Types for blog",
   "main": "dist/index.js",
   "scripts": {
