@@ -1,0 +1,79 @@
+[
+    { 
+        "type": "title",
+        "content": "Back to express"
+    },
+    {
+        "type": "text",
+        "content": "This is the second part of a three part series of posts I am doing about the creation of my blog. As you can probably tell by the title I will be looking at the back-end, it was probably the part with the least amount of issues down to it being quite straightforward and additionally I was quite familiar with the technologies being used, it was also the part which I had the most fun developing."
+    }, 
+    {
+        "type": "text",
+        "content": "As previously stated in the “Into the infrastructure” blog post, the API for the blog was going to run on AWS Lambda. Being inexperienced with this combination of technologies I should have done more research into what back-end technology I would use, however I decided to use ExpressJS. In hindsight I would have probably used a different more lightweight and modern framework or maybe a different language completely but we can get into that later."
+    }, 
+    {
+        "type": "text",
+        "content": "While setting up Express I added a few libraries to make my developer experience nicer than just using standalone Express. I set up TypeScript which added type safety and really helps when you have to manipulate data, however there was one scenario when I was not pit didn't help. When making database calls I was using a library called MySQL2, it allowed me to write MySQL to communicate with my database. However without using an object relation mapping you can't be 100% sure that the data coming from the database call matches the type of the variable the response is being assigned to."
+    }, 
+    {
+        "type": "code",
+        "content": "https://gist.github.com/joshnice/3d049fe6a2218dfa348587e060b99c6e",
+        "caption": "Example of getting a post from the database"
+    },
+    {
+        "type": "text",
+        "content": "Another quality of life improvement I made was adding live reloading, this ensured that any changes I made to the code would trigger a rebuild and served instantly the local development server. I used nodemon (monitors the code for changes and restarts the server), concurrently (runs multiple CLI commands at once) and rimraf (removes files) to achieve this. On a side note I also set up the whole project (frontend, backend and modules) to all start running on a local server with one command using a library called ttab."
+    }, 
+    {
+        "type": "code",
+        "content": "https://gist.github.com/joshnice/07bcf4457cabec7a6534717115d12056",
+        "caption": "All the API's npm commands with live reloading enabled"
+
+    },
+    {
+        "type": "text",
+        "content": "An issue I did face with the integration frontend and backend was some Cross Origin Resource Sharing (CORS) errors. CORS was added to browsers to stop requests being made to resources which are on other domains. This is done for the browsers for security reasons and understandably so, even for all the good they do coming across one of these errors are tiresome to debug and very annoying! I first thought it was because my API was not on the same domain as the blog's website, so I set them up to use the same domain… still no luck. I thought it was a Vite (build tool for the front-end) issue, maybe something wasn't configured correctly, still no luck. Eventually I stumbled across a StackOverflow post stating if you want to run an Express application on lambda you need to use the npm cors package."
+    },
+    {
+        "type": "text",
+        "content": "By using the cors package mentioned above I did leave myself open to big security vulnerabilities, for example a malicious actor could take the API endpoints and just constantly request data from them. This in theory could slow down the API and also cost me money for the cloud resources used. To counter this I needed to add some rate limiting. Rate limiting is very straight forward, it only allows a certain amount of requests in a set period of time, this is done per IP address. For example the get Posts route only allows for 10 requests per minute, if an IP address requests over this amount they will get 429 network error with a message informing them they had hit the rate limit. I did this using a great library called Upstash which I have mentioned before. Upstash makes it so easy to add rate limiting to the API and works perfectly in a serverless cloud architecture. I will also be using Upstash to add cache to the blog in the future. The rate limiting under the hood uses Redis and stores a key value pair to store data about requests. The identifier for the user is their IP address with the route they are using, the unique identifier will allow other users to make requests to the API even if another user is being rate limited."
+    }, 
+    {
+        "type": "image",
+        "content": "https://blog-cdn-0de55373-97ca-42ac-a4c4-6850209ab903.s3.eu-west-2.amazonaws.com/upstash.png",
+        "alt": "Upstash's logo",
+        "caption": "Upstash's logo"
+    },
+    {
+        "type": "text",
+        "content": "Enough about the set up of the blog, let's talk about what it does! The plan for the blog was to store only some of the data for the posts in a database. Some of the bigger content could not be stored here, as it was not viable to store large amounts of text, images, code snippets in just a database. So the plan was to have the blog post's details inside the database. This would include the name, description, date and a url to a JSON document in S3. The JSON document would have all of the content in for the post, it would have the text content, URLs to images also stored in S3, YouTube links for videos and Github gist links for code snippets."
+    },
+    {
+        "type": "code",
+        "content": "https://gist.github.com/joshnice/49c7ea17bad41676fdac6f3ce79df68a",
+        "caption": "Example of what a post's JSON document would look like"
+    },
+    {
+        "type": "text",
+        "content": "Next thing to mention is how I connected to the database. This is quite simple and uses two npm libraries. I was using MySQL for my database so I used an npm library called MySQL2 to create a connection pool which then in turn was used to connect to the database. I also used environment variables which were stored in the lambda function, these contained the IP address of the database, the user, password and database name. Node by default does not allow you to get environment variables so I had to use dotenv. This is a best practice when storing credentials to a database, never store the credentials in your code."
+    },
+    {
+        "type": "code",
+        "content": "https://gist.github.com/joshnice/650afc182e92aa5d5e435eb5f44cfedf",
+        "caption": "How the API uses environment variables to connect to the database"
+    },
+    {
+        "type": "text",
+        "content": "With most parts of the backend explained, let me run you through an example of how I get a blog post when the user requests one. The user requests a blog post by clicking on the user interface in the front end, this makes a get request which contains the post id. A lambda function gets started and the Express application is ran within it. Express will match the route and runs the get post code. The get post function takes the id and selects the post out of the database, which includes a URL to a JSON document inside S3, however before getting this we need to create a signature for it so we don't get an authorisation error. Once we retrieve the blog post from S3 we loop through the contents of it looking for any images, if we find an image we create a signature for it and modify the blog post's JSON document (we replace the image URL with the URL with the signature we have created). After doing this we send the JSON document back to the front end so it can display the blog post."
+    },
+    {
+        "type": "image",
+        "content": "https://blog-cdn-0de55373-97ca-42ac-a4c4-6850209ab903.s3.eu-west-2.amazonaws.com/backend-flow.png",
+        "alt": "Outline of  blog api",
+        "caption": "An outline of the steps take to get a blog post"
+    },
+    {
+        "type": "text",
+        "content": "That was an overview of the backend for this blog. I will be doing a future post on how we can improve what has been done already with different frameworks instead of express, adding quicker layers of storage such as caching and also looking at different infrastructure solutions to improve the performance."
+    }
+]
