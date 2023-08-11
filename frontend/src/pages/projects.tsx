@@ -20,8 +20,6 @@ export const ProjectsPage = () => {
         }
     }
 
-    console.log(projects);
-
     if (isLoading || projects == null) {
         return <LoadingBarComponent />
     }
