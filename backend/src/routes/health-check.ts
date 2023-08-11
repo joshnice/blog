@@ -1,8 +1,7 @@
 import express from "express";
-import { MysqlError } from "mysql";
-import { pool } from "../db/connection";
 import { getUsers } from "../models/user";
 import { healthCheckLimit, rateLimitCheck } from "../redis/rate-limits";
+import { version } from "../index";
 
 export const router = express.Router();
 
@@ -15,5 +14,5 @@ router.get("/", async (req, res) => {
     }
 
     const users = await getUsers();
-    res.json(users);
+    res.json({users, version});
 });

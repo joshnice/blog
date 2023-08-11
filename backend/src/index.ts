@@ -38,3 +38,5 @@ if (process.env.LOCAL === "true") {
         return result;
     };  
 }
+
+export const version = "1.0.0";
