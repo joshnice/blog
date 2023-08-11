@@ -29,13 +29,13 @@ jobs:
                 cache: npm
 
             - name: Install dependencies
-              run: cd ./backend && npm i
+              run: npm i -w @joshnice/blog-backend
 
             - name: Build
-              run: cd ./backend && npm run build
+              run: npm run build -w @joshnice/blog-backend
 
             - name: Zip build and dependencies
-              run: zip -r api-build ./backend/dist ./backend/node_modules
+              run: zip -r api-build ./backend/dist ./node_modules
             
             - name: Sync S3 bucket 
               run: aws s3 sync ./api-build s3://joshliamnice-api --delete
