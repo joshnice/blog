@@ -37,12 +37,9 @@ jobs:
             - name: Build
               run: npm run build -w @joshnice/blog-backend
 
-            - name: List folders
-              run: ls
-
-            # - name: Zip build and dependencies
-            #   run: zip -r api-build ./backend/dist ./node_modules
+            - name: Zip build and dependencies
+              run: mv ./node_modules ./backend && cd backend && zip -r api-build ./dist ./node_modules
             
-            # - name: Sync S3 bucket 
-            #   run: aws s3 cp api-build.zip s3://joshliamnice-api
+            - name: Sync S3 bucket 
+              run: aws s3 cp ./backend/api-build.zip s3://joshliamnice-api
 
