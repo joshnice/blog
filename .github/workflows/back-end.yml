@@ -27,18 +27,15 @@ jobs:
               with:
                 node-version: latest
                 cache: npm
-            
-            - name: Move to back-end folder
-              run: cd ./backend
 
             - name: Install dependencies
-              run: npm i
+              run: cd ./backend && npm i
 
             - name: Build
-              run: npm run build
+              run: cd ./backend && npm run build
 
             - name: Zip build and dependencies
-              run: zip -r api-build ./dist ./node_modules
+              run: zip -r api-build ./backend/dist ./backend/node_modules
             
             - name: Sync S3 bucket 
               run: aws s3 sync ./api-build s3://joshliamnice-api --delete
