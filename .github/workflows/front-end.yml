@@ -28,9 +28,10 @@ jobs:
                 cache: npm
             
             - name: Install dependencies
-              run: npm i -ws @joshnice/blog-frontend
+              run: npm i -w @joshnice/blog-frontend
+
             - name: Build
-              run: npm run build -ws @joshnice/blog-frontend
+              run: npm run build -w @joshnice/blog-frontend
 
             - name: Deploy S3 bucket 
               run: aws s3 sync ./frontend/dist/ s3://joshliamnice.co.uk --delete
