@@ -1,5 +1,6 @@
 name: Front-end
 on:
+    workflow_dispatch:
     push:
         branches:
             main
@@ -35,9 +36,4 @@ jobs:
 
             - name: Deploy S3 bucket 
               run: aws s3 sync ./frontend/dist/ s3://joshliamnice.co.uk --delete
-
-            
-
-            
-
 
