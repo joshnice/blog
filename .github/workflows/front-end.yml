@@ -1,0 +1,42 @@
+name: Front-end
+on:
+    push:
+        branches:
+            main
+        paths:
+            frontend/**
+    
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            
+            - name: Configure AWS Credentials
+              uses: aws-actions/configure-aws-credentials@v1
+              with:
+                aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                aws-region: eu-west-2
+            
+            - name: Setup node
+              uses: actions/setup-node@v3
+              with:
+                node-version: 16.13.x
+                cache: npm
+            
+            - name: Install dependencies
+              run: npm i -ws @joshnice/blog-frontend
+            - name: Build
+              run: npm run build -ws @joshnice/blog-frontend
+
+            - name: Deploy S3 bucket 
+              run: aws s3 sync ./frontend/dist/ s3://joshliamnice.co.uk --delete
+
+            
+
+            
+
+
