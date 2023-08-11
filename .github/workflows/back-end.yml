@@ -38,5 +38,5 @@ jobs:
               run: zip -r api-build ./backend/dist ./backend/node_modules
             
             - name: Sync S3 bucket 
-              run: aws s3 sync ./api-build s3://joshliamnice-api --delete
+              run: aws s3 sync ./backend/api-build s3://joshliamnice-api --delete
 
