@@ -28,15 +28,18 @@ jobs:
                 node-version: latest
                 cache: npm
             
+            - name: Setup folder for build
+              run: mv ./backend ../build
+            
             - name: Install dependencies
-              run: npm i -w @joshnice/blog-backend
+              run: cd ../build/backend && npm i 
 
             - name: Build
-              run: npm run build -w @joshnice/blog-backend
+              run: cd ../build/backend && npm run build
 
             - name: Zip build and dependencies
-              run: mv ./node_modules ./backend && cd backend && zip -r api-build ./dist ./node_modules
+              run: cd ../build/backend && zip -r api-build ./dist ./node_modules
             
             - name: Sync S3 bucket 
-              run: aws s3 cp ./backend/api-build.zip s3://joshliamnice-api
+              run: cd ../build/backend && aws s3 cp ./backend/api-build.zip s3://joshliamnice-api
 
