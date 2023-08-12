@@ -42,4 +42,7 @@ jobs:
             
             - name: Sync S3 bucket 
               run: cd ../build && aws s3 cp ./api-build.zip s3://joshliamnice-api
+            
+            - name: Update lambda function
+              run: aws lambda update-function-code --function-name blog-api --s3-bucket joshliamnice-api --s3-key api-build.zip 
 
