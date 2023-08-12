@@ -32,14 +32,14 @@ jobs:
               run: mv ./backend ../build
             
             - name: Install dependencies
-              run: cd ../build/backend && npm i 
+              run: cd ../build && npm i 
 
             - name: Build
-              run: cd ../build/backend && npm run build
+              run: cd ../build && npm run build
 
             - name: Zip build and dependencies
-              run: cd ../build/backend && zip -r api-build ./dist ./node_modules
+              run: cd ../build && zip -r api-build ./dist ./node_modules
             
             - name: Sync S3 bucket 
-              run: cd ../build/backend && aws s3 cp ./backend/api-build.zip s3://joshliamnice-api
+              run: cd ../build && aws s3 cp ./backend/api-build.zip s3://joshliamnice-api
 
