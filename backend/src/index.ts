@@ -39,4 +39,4 @@ if (process.env.LOCAL === "true") {
     };  
 }
 
-export const version = "1.0.0";
+export const version = "1.0.1";
