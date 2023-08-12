@@ -41,5 +41,5 @@ jobs:
               run: cd ../build && zip -r api-build ./dist ./node_modules
             
             - name: Sync S3 bucket 
-              run: cd ../build && aws s3 cp ./backend/api-build.zip s3://joshliamnice-api
+              run: cd ../build && aws s3 cp ./api-build.zip s3://joshliamnice-api
 
