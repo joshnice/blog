@@ -1,0 +1,50 @@
+[
+    { 
+        "type": "title",
+        "content": "Reducing social media"
+    },
+    {
+        "type": "text",
+        "content": "This post is going to be less tech centric compared to the previous ones on the blog. One of my goals for 2023 was to reduce the amount of time I spent on social media, which I believe I was doing quite well at until the last few months. Recently I have got back into the habit of picking up my phone and mindlessly scrolling twitter (now known as X… thanks Elon) or reddit without taking or being interested in any information and distracting me from what I am doing. Now don't get me wrong, social media can be an incredible thing. It can be informative teaching you about subjects which are fascinating or news that you couldn't find from your normal sources, it allows us to keep in contact with people from all over the world and quite frankly without it I wouldn't have my relationship with Ghaira (my missus who lives in Dubai)."
+    },
+    {
+        "type": "text",
+        "content": "Firstly I think we need to define what social media is. We all know of the big social media platforms such as Twitter, Facebook, Instagram, Reddit and many more. However are services like Messenger (Facebook instant messaging) and WhatsApp, are these social media as well? In my opinion I would say yes and just Googling the question will give you a broad range of opinions and theories on if messaging apps are social media or not. So the verdict is out on that one."
+    },
+    {
+        "type": "image",
+        "content": "https://blog-cdn-0de55373-97ca-42ac-a4c4-6850209ab903.s3.eu-west-2.amazonaws.com/twitter-reddit.png",
+        "alt": "twitter and reddit",
+        "caption": "Twitter (left) and Reddit (right)"
+    },
+    {
+        "type": "text",
+        "content": "Let's go a bit deeper into how we can use social media for good and what I want to use it for. One of the main reasons I will use Twitter and Reddit is to gain information. For the last few months I have been using Twitter's list feature, it allows you to split the accounts you follow into different groups. I split my groups up into different subjects, two of them being “Dev” which is everything software development related and another list I use is politics. The “Dev” timeline consists of hot takes from other developers I follow and quite a lot of coding or tech memes, however it has also become a great source for exposing me to new technologies. For example there was a tweet which was meant to spark up some discussion within the community, “Express is useless and shouldn't be used in 2023”. Reading the replies will give you a broad range of tweets, some funny replies, reasons why it shouldn't be used, reasons why the tweet is wrong and also some great alternatives. Now the alternatives aren't really explained on why they should be used instead of Express, but it does give you a good start to go do some research into it."
+    }, 
+    {
+        "type": "text",
+        "content": "I think another reason why social media is used so much is because it is entertaining, we like to know what other people are doing, if it is their achievements or their downfalls. For example if you look at some of the most recent viral videos on Twitter right now, I would give it a good guess that it is something bad happening to other people. As a form of entertainment I think social media is good, however like any form of entertainment you don't want to be doing it too much and have a healthy balance."
+    },
+    {
+        "type": "text",
+        "content": "The way social media platforms are built is to encourage users to keep using them or to return to scrolling away later on. By design they are meant to be addictive, always serving posts which you should be interested in. This has led to an issue of mine where I will just endless scroll on Twitter. Half of the time I am not taking in the information (if useful at all I don't know) on screen and I am just doing it out of habit. It might be when I first get up and haven't woken up enough to compute what is one screen, it might be when I am stuck on something at work and think I need a distraction. Maybe that is what social media is to me, just a distraction to something I meant to be doing, meant to be getting up earlier or meant to be focusing on something at work. From various sources I have read the same sentence again and again. Once you have stopped focusing on a task it can take 25 minutes to get to the same level of focus as before. To me this is mindblowing and has made me really reconsider how I use my phone when I have something I should be concentrating on. "
+    }, 
+    {
+        "type": "text",
+        "content": "With all the time I spend on social media I always think, are there more productive things I can do with my time? Could I spend more time working on projects which I want to do or maybe take up new and interesting hobbies? Other bad things about social media is that they can increase the amount of screen time you have on your phone. Now working on a computer all day, looking at multiple screens probably makes my screen time way above average. However, reducing it outside of work will help my eyesight. I can feel the difference at work currently. I have been working longer hours due to deadlines and as a result my eyes have been more sore and hurting at certain periods with them also being quite bloodshot. Two consequences from long screen times are eye fatigue and dry and irritated eyes."
+    }, 
+    {
+        "type": "text",
+        "content": "Enough of the negative stuff (even though there are plenty more points we could go through), we all know why social media is bad, but how can we reduce it? If I am going to replace social media with watching Netflix then what is the point? I want to get something better out of not using it. One of the things I am going to do is to try and be more productive. This includes more blog posts, but not all about coding and tech. I really enjoyed the change of pace of writing this post and I want to explore other topics that I can write about. I also want to carry on working on projects that I have started and got planned and try to learn more about different programming languages."
+    },
+    {
+        "type": "text",
+        "content": "Another hobby I have taken up recently is reading. I used to love to read when I was younger, especially before bed or when I was travelling. However this has been replaced with just browsing my phone to pass the time, I recently purchased a book called “The escape artist” which has been such an amazing read so far and hopefully in the near future I can do a blog post about it. I have also signed up for a year subscription with a newspaper called “The New European”, a modern political and cultural newspaper focusing on the United Kingdom and Europe. “Why a year subscription” I hear you ask? Well it also came with a signed copy of Rory Stewart's new book “Politics on the Edge” which I also wanted, so I guess two birds one stone.. Or that's what I tell myself!"
+    }, 
+    {
+        "type": "image",
+        "content": "https://blog-cdn-0de55373-97ca-42ac-a4c4-6850209ab903.s3.eu-west-2.amazonaws.com/politics_on_the_edge.png",
+        "alt": "Politics on the edge book",
+        "caption": "Rory Stewart's new book Politics on the Edge"
+    }
+]
