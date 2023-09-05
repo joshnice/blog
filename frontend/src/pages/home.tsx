@@ -15,8 +15,47 @@ export const HomePage: FunctionComponent = () => {
 
     // Warm up lambda function
     useEffect(() => {
-        fetch(`${apiUrl}/health_check`);
-    }, [])
+        var script = document.createElement("script");
+        
+        script.onload = function () {
+            setTimeout(async () => {
+            
+                console.log("AwsWafIntegration", AwsWafIntegration);
+
+                // const token = await AwsWafIntegration.getToken();
+
+                // console.log("token", token);
+
+                const hasToken = await AwsWafIntegration.hasToken();
+
+                console.log("has token", hasToken);
+
+                try {            
+                    const output =  await AwsWafIntegration.fetch(`${apiUrl}/health_check`, {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                        }
+                    });
+
+                    console.log("output", output);
+
+                } catch (err) {
+                    console.error("err", err)
+                }
+             
+            
+            }, 1000)
+        };
+        
+        const scriptSrc = "https://7587a9016aca.eu-west-2.captcha-sdk.awswaf.com/7587a9016aca/jsapi.js"; 
+        
+        if (!Object.values(document.head.childNodes).some((node) => node.src?.includes("awswaf"))) {
+            script.src = scriptSrc;
+            document.head.appendChild(script);
+        }
+
+    }, []);
 
     return (
         <PageContainer>
