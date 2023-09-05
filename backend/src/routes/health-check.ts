@@ -16,3 +16,8 @@ router.get("/", async (req, res) => {
     const users = await getUsers();
     res.json({users, version});
 });
+
+router.post("/", async (req, res) => {
+    const users = await getUsers();
+    res.json({users, version});
+});
