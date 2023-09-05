@@ -49,7 +49,7 @@ export const HomePage: FunctionComponent = () => {
         };
         
         const scriptSrc = "https://7587a9016aca.eu-west-2.captcha-sdk.awswaf.com/7587a9016aca/jsapi.js"; 
-        
+        // @ts-ignore
         if (!Object.values(document.head.childNodes).some((node) => node.src?.includes("awswaf"))) {
             script.src = scriptSrc;
             document.head.appendChild(script);
