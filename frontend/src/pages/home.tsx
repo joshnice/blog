@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent } from "react";
 import { PageContainer } from "../components/page-container";
 import { useNavigate } from "react-router-dom";
 import { blogPage } from "../constants-and-types/constants";
