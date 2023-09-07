@@ -13,21 +13,42 @@ export const HomePage: FunctionComponent = () => {
         navigate(blogPage.path);
     }
 
-    const handleClick = async () => {
-        const output =  await AwsWafIntegration.fetch(`${apiUrl}/health_check`, {
+    const handleClickWith = async () => {
+
+        const token = await window.AwsWafIntegration.getToken();
+
+        console.log("token", token);
+
+        const healthCheck = await window.AwsWafIntegration.fetch(`${apiUrl}/health_check`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
-                credentials: "include"
+                mode: "no-cors"
             }
-        });
-        console.log("Output", output);
+        }).catch((err) => {
+            console.log("err", err);
+        })
+        console.log("healthCheck", healthCheck);
+    }
+
+
+    const handleClickWithOut = async () => {
+        const healthCheck = await fetch(`${apiUrl}/health_check`, {
+            method: "POST",
+            headers: {
+                mode: "no-cors"
+            }
+        }).catch((err) => {
+            console.log("err", err);
+        })
+        console.log("healthCheck", healthCheck);
     }
 
     return (
         <PageContainer>
-            <button onClick={handleClick}>Click me</button>
             <div className="flex flex-col gap-5">
+            <button className="p-2 border" onClick={handleClickWith}>With</button>
+            <button className="p-2 border" onClick={handleClickWithOut}>Without</button>
+
                 <Header>Hi, I'm Josh!</Header>
                 <Text>I am a 25 year old software engineer who is living in the United Kingdom. I have a big interest in web development, technology, and sports. Currently I am working for <Link href="https://www.iventis.co.uk/" newTab>Iventis</Link> who are a company who specialise in event software.</Text>
                 <Text> I am fascinated by web development and the amazing community that surrounds it and lately have had a real drive to create new things that I would find useful. I wanted a way to document my journey of creating these new things, with all bumps in the road and interesting stuff I find along the way. </Text>
