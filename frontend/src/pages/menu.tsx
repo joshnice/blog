@@ -15,10 +15,10 @@ export const MenuPage = () => {
     }
     
     return (
-        <div className="flex flex-col justify-center w-full h-full">
+        <div className="flex flex-col justify-start w-full h-full">
             {pages.filter(({show}) => show).map((page) => 
                 (
-                    <div key={page.path} className="flex flex-col justify-start items-start w-full h-full">
+                    <div key={page.path} className="flex flex-col justify-start items-start w-full h-full max-h-32">
                         <div className="h-px bg-slate-400 w-full" />
                         <button className="text-white pl-4 pr-4 h-28 w-full text-left" onClick={() => handlePageClicked(page.path)}>
                             {page.name}
