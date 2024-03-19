@@ -3,7 +3,7 @@ import { PageContainer } from "../components/page-container";
 import { useNavigate } from "react-router-dom";
 import { blogPage } from "../constants-and-types/constants";
 import { Header, Link, Text } from "../components/page-text";
-import { apiUrl } from "../api/api";
+import { apiUrl, cloudflareWorkerUrl } from "../api/api";
 
 export const HomePage: FunctionComponent = () => {
 
@@ -16,6 +16,11 @@ export const HomePage: FunctionComponent = () => {
     // Warm up lambda function
     useEffect(() => {
         fetch(`${apiUrl}/health_check`);
+    }, []);
+
+    // Test Cloudflare
+    useEffect(() => {
+        fetch(`${cloudflareWorkerUrl}/users`);
     }, [])
 
     return (
