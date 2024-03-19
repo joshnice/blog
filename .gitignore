@@ -2,3 +2,12 @@ node_modules
 dist
 .env
 *.zip
+
+.wrangler
+.dev.vars
+
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+wrangler.toml
