@@ -36,7 +36,7 @@
     "@types/node": "^18.15.11",
     "@types/request-ip": "^0.0.37",
     "concurrently": "^8.0.1",
-    "nodemon": "^2.0.22",
+    "nodemon": "^3.1.0",
     "rimraf": "^5.0.0",
     "typescript": "^5.0.4"
   }
