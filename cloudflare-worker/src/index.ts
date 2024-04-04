@@ -1,14 +1,12 @@
-import { D1Database } from '@cloudflare/workers-types';
 import { Hono } from 'hono'
 import { cors } from 'hono/cors';
-
-type Bindings = {
-  DB: D1Database
-}
+import { Bindings } from "./types";
+import { PostsRoute } from './posts';
 
 const app = new Hono<{ Bindings: Bindings }>();
 
 app.use(cors());
+app.route("/posts", PostsRoute);
 
 app.get("/users", async (c) => {
 

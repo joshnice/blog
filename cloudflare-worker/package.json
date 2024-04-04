@@ -1,9 +1,14 @@
 {
+  "name": "cloudflare-api", 
   "scripts": {
     "dev": "wrangler dev src/index.ts",
     "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
+    "@aws-sdk/s3-request-presigner": "^3.540.0",
+    "@aws-sdk/client-s3": "^3.540.0",
+    "@joshnice/helpers": "1.0.4",
+    "@joshnice/types": "1.0.6",
     "hono": "^4.1.2"
   },
   "devDependencies": {
