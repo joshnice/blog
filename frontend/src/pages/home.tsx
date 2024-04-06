@@ -14,7 +14,7 @@ export const HomePage: FunctionComponent = () => {
     }
 
     useEffect(() => {
-        fetch(`${apiUrl}/health_check`);
+        fetch(`${apiUrl}/health-check`);
     }, []);
 
     return (
