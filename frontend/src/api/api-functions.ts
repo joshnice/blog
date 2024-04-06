@@ -14,7 +14,7 @@ export async function getPost(postId: string): Promise<Post> {
 }
 
 export async function getProjects(): Promise<ProjectList[]> {
-    const response = await fetch(`${apiUrl}/projects/`, { method: "get" });
+    const response = await fetch(`${apiUrl}/projects`, { method: "get" });
     const projects = await response.json();
     return projects;
 }
