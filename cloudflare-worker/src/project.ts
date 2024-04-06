@@ -38,5 +38,5 @@ ProjectRoute.get("/:id", async(ctx) => {
 
     const projectContent = await response.Body.transformToString();
 
-    return ctx.json(projectContent);
+    return ctx.json(JSON.parse(projectContent));
 });

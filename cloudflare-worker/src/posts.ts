@@ -27,7 +27,7 @@ PostsRoute.get("/:limit?", async c => {
       return { id, title, thumbnailUrl: url, description, date: new Date(date) };
     })
 
-    const signedPosts = await Promise.allSettled(postRequests);
+    const signedPostsResponse = await Promise.all(postRequests);
 
-    return c.json(signedPosts);
+    return c.json(signedPostsResponse);
 });
