@@ -1,5 +1,4 @@
 import { Hono } from "hono";
-import { PostList } from "@joshnice/types";
 import { DbPostList } from "@joshnice/types";
 import { urlToBucketAndKey } from "@joshnice/helpers";
 import { GetObjectCommand } from "@aws-sdk/client-s3";
