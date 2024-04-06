@@ -2,11 +2,13 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors';
 import { Bindings } from "./types";
 import { PostsRoute } from './posts';
+import { PostRoute } from './post';
 
 const app = new Hono<{ Bindings: Bindings }>();
 
 app.use(cors());
 app.route("/posts", PostsRoute);
+app.route("/post", PostRoute);
 
 app.get("/users", async (c) => {
 
