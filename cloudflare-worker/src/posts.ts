@@ -17,17 +17,18 @@ PostsRoute.get("/:limit?", async c => {
 
     const { results } = await c.env.DB.prepare(sql).bind(parsedLimit).all<DbPostList>();
 
-    const signedPosts: PostList[] = [];
 
     const {AWS_S3_ACCESS_KEY, AWS_S3_REGION, AWS_S3_SECRET_ACCESS_KEY} = c.env;
     const s3Client = createS3Client(AWS_S3_ACCESS_KEY, AWS_S3_SECRET_ACCESS_KEY, AWS_S3_REGION);
 
-    for await (const {id, title, thumbnail_url, description, date} of results) {
+    const postRequests = results.map(async ({id, title, thumbnail_url, description, date}) => {
         const { bucketName, key } = urlToBucketAndKey(thumbnail_url);
         const command = new GetObjectCommand({ Bucket: bucketName, Key: key });
         const url = await getSignedUrl(s3Client, command, { expiresIn: 3600 });
-        signedPosts.push({ id, title, thumbnailUrl: url, description, date: new Date(date) });
-    }
+      return { id, title, thumbnailUrl: url, description, date: new Date(date) };
+    })
+
+    const signedPosts = await Promise.allSettled(postRequests);
 
     return c.json(signedPosts);
 });
