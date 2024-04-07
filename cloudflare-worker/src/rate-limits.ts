@@ -21,7 +21,7 @@ const createGetBlogPostsLimit = (env: Bindings) => new Ratelimit({
 });
 
 const createGetBlogPostLimit = (env: Bindings) => new Ratelimit({
-    redis: Redis.fromEnv(),
+    redis: Redis.fromEnv(env),
     limiter: Ratelimit.slidingWindow(20, "60 s"),
     analytics: true,
     prefix: `${rateLimitPrefix}-getBlogPost`,
