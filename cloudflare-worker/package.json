@@ -1,5 +1,5 @@
 {
-  "name": "cloudflare-api", 
+  "name": "@joshnice/blog-api", 
   "scripts": {
     "dev": "wrangler dev src/index.ts",
     "deploy": "wrangler deploy --minify src/index.ts"
