@@ -16,8 +16,9 @@ jobs:
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}  
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           workingDirectory: "api"
+          postCommands: echo ls -a 
         env:
           AWS_S3_ACCESS_KEY: ${{ secrets.AWS_S3_ACCESS_KEY }}
           AWS_S3_SECRET_ACCESS_KEY: ${{ secrets.AWS_S3_SECRET_ACCESS_KEY }}
