@@ -1,5 +1,6 @@
 name = "blog-api"
 compatibility_date = "2023-12-01"
+main = "src/index.ts"
 
 [[d1_databases]]
 binding = "DB"
