@@ -1,6 +1,5 @@
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis/cloudflare";
-import "isomorphic-fetch";
 import { Bindings } from "./types";
 import { Context } from "hono";
 
