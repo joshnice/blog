@@ -1,0 +1,7 @@
+name = "blog-api"
+compatibility_date = "2023-12-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "joshliamnice"
+database_id = "94960008-fed4-4f00-baa1-39a2c53e26a3"
