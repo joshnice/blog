@@ -17,6 +17,7 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          preCommands: ls -a && echo ls -a
           workingDirectory: "api"
           postCommands: echo ls -a 
         env:
