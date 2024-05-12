@@ -1,9 +1,10 @@
 resource "aws_s3_bucket" "blog-frontend-build" {
-  bucket = var.front_end_build_bucket_name
+  bucket        = var.front_end_build_bucket_name
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_website_configuration" "blog-frontend-build" {
-  bucket = aws_s3_bucket.blog-frontend-build.id
+  bucket = var.front_end_build_bucket_name
 
   index_document {
     suffix = "index.html"
@@ -11,7 +12,7 @@ resource "aws_s3_bucket_website_configuration" "blog-frontend-build" {
 }
 
 resource "aws_s3_bucket_public_access_block" "blog-frontend-build" {
-  bucket                  = aws_s3_bucket.blog-frontend-build.id
+  bucket                  = var.front_end_build_bucket_name
   block_public_acls       = false
   block_public_policy     = false
   ignore_public_acls      = false
@@ -20,7 +21,7 @@ resource "aws_s3_bucket_public_access_block" "blog-frontend-build" {
 
 
 resource "aws_s3_bucket_policy" "blog-frontend-build" {
-  bucket     = aws_s3_bucket.blog-frontend-build.id
+  bucket     = var.front_end_build_bucket_name
   depends_on = [aws_s3_bucket_public_access_block.blog-frontend-build, aws_s3_bucket.blog-frontend-build, aws_s3_bucket_website_configuration.blog-frontend-build]
 
   policy = jsonencode({

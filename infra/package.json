@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "validate": "cd ./src && terraform validate",
-    "deploy": "cd ./src && terraform deploy",
+    "deploy": "cd ./src && terraform apply",
     "destroy": "cd ./src && terraform destroy"
   },
   "author": "",
