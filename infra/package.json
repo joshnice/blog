@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "validate": "cd ./src && terraform validate",
+    "deploy": "cd ./src && terraform deploy",
+    "destroy": "cd ./src && terraform destroy"
   },
   "author": "",
   "license": "ISC"

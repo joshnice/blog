@@ -7,13 +7,17 @@
 		"backend",
 		"frontend",
 		"common/types",
-		"common/helpers"
+		"common/helpers",
+		"infra"
 	],
 	"scripts": {
 		"build": "npm run build -ws --if-present",
 		"test": "npm run test -ws --if-present",
 		"dev": "npm run dev -w frontend @joshnice/blog-frontend",
-		"deploy": "npm run deploy -w @joshnice/blog-api"
+		"deploy": "npm run deploy -w @joshnice/blog-api",
+		"infra-deploy": "npm run deploy -w @joshnice/blog-infra",
+		"infra-destroy": "npm run destroy -w @joshnice/blog-infra",
+		"infra-validate": "npm run validate -w @joshnice/blog-infra"
 	},
 	"author": "joshnice",
 	"license": "ISC",
