@@ -40,3 +40,19 @@ resource "aws_s3_bucket_policy" "blog-frontend-build" {
     ]
   })
 }
+
+resource "aws_s3_bucket" "blog-private-cdn" {
+  bucket = var.private_cdn_bucket_name
+}
+
+resource "aws_s3_bucket" "blog-public-cdn" {
+  bucket = var.public_cdn_bucket_name
+}
+
+resource "aws_s3_bucket_public_access_block" "blog-public-cdn" {
+  bucket                  = var.public_cdn_bucket_name
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
