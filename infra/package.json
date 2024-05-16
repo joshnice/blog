@@ -6,7 +6,8 @@
   "scripts": {
     "validate": "cd ./src && terraform validate",
     "deploy": "cd ./src && terraform apply",
-    "destroy": "cd ./src && terraform destroy"
+    "destroy": "cd ./src && terraform destroy",
+    "init": "cd ./src && terraform init"
   },
   "author": "",
   "license": "ISC"
