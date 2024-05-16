@@ -19,3 +19,9 @@ module "s3" {
   private_cdn_bucket_name     = "blog-private-cdn"
   public_cdn_bucket_name      = "blog-public-cdn"
 }
+
+module "aws_cloudfront_distribution" {
+  source                        = "./modules/cloudfront"
+  blog_front_bucket_domain_name = module.s3.blog_front_end_domain_name
+  blog_front_bucket_id          = module.s3.blog_front_end_domain_name_origin_id
+}
