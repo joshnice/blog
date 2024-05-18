@@ -13,10 +13,7 @@ provider "cloudflare" {
 }
 
 module "worker" {
-  source = "./modules/workers"
-  providers = {
-    cloudflare = cloudflare
-  }
+  source                = "./modules/workers"
   api_blog_worker_name  = "api-blog"
   cloudflare_account_id = var.cloudflare_account_id
 }
