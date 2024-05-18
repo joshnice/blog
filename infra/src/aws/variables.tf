@@ -1,5 +1,5 @@
-variable "region" {
+variable "aws_region" {
   type        = string
-  default     = ""
   description = "Region of where the the resources will be created"
+  sensitive   = true
 }
