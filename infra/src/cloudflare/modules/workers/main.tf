@@ -13,4 +13,9 @@ resource "cloudflare_worker_script" "blog-api" {
   name       = var.api_blog_worker_name
   content    = file("${path.module}/script.mjs")
   module     = true
+
+  d1_database_binding {
+    name        = var.api_blog_database_name
+    database_id = var.api_blog_database_id
+  }
 }
