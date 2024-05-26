@@ -10,7 +10,7 @@ import { allowRequestRateLimit } from './rate-limits';
 
 const app = new Hono<{ Bindings: Bindings }>();
 
-export const VERSION = 2.0;
+export const VERSION = "2.0.1";
 
 app.use(cors());
 
