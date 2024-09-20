@@ -61,12 +61,20 @@ async function main() {
 
   const workspaceAudit = {};
 
+  console.log("Found all workspaces...");
+  let checkedWorkspaces = 0;
+
   for (const workspace of workspacePaths) {
     const workspacePackageJson = JSON.parse(await readFile(`${workspace}/package.json`, { encoding: "utf8" }));
     workspaceAudit[workspacePackageJson.name] = await getVulnerabilitiesForWorkspace(workspace);
+    checkedWorkspaces += 1;
+    console.log(`Checked ${checkedWorkspaces} workspaces out of ${workspacePaths.length}`);
   }
   
+  console.log("Checking full repo...");
   const audit = await getAuditForRepo();
+  console.log("Checked full repo...");
+ 
   console.log("Repo audit", audit.metadata.vulnerabilities);
   console.log("Workspace audit", workspaceAudit);
 }
