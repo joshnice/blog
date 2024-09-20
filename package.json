@@ -24,6 +24,6 @@
 	"license": "ISC",
 	"devDependencies": {
 		"concurrently": "^8.0.1",
-		"ttab": "^0.8.0"
+		"ttab": "^0.9.0"
 	}
 }
