@@ -2,9 +2,7 @@ version: 2
 updates:
 
   - package-ecosystem: "npm"
-    directories: 
-      - "/frontend"
-      - "/api"
+    directory: "/"
     schedule:
       interval: "daily"
     versioning-strategy: increase
