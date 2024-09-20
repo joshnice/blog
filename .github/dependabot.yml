@@ -6,3 +6,17 @@ updates:
     schedule:
       interval: "daily"
     versioning-strategy: increase
+    groups:
+      version-minor-and-patch:
+        applies-to: version-updates
+        update-types:
+          - "minor"
+          - "patch"
+      security-minor-and-patch:
+        applies-to: security-updates
+        update-types:
+          - "minor"
+          - "patch"
+
+
+        
