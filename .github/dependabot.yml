@@ -7,3 +7,4 @@ updates:
       - "/api"
     schedule:
       interval: "daily"
+    versioning-strategy: increase
