@@ -23,7 +23,7 @@
 	"author": "joshnice",
 	"license": "ISC",
 	"devDependencies": {
-		"concurrently": "^8.0.1",
+		"concurrently": "^9.0.1",
 		"ttab": "^0.8.0"
 	}
 }
