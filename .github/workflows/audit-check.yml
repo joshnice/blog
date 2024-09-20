@@ -19,5 +19,5 @@ jobs:
                 node-version: latest
                 cache: npm
             
-            - name: Audit frontend
+            - name: Audit
               run: node ./.github/workflow-helpers/audit.mjs

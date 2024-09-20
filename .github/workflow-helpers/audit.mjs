@@ -66,8 +66,8 @@ async function main() {
     workspaceAudit[workspacePackageJson.name] = await getVulnerabilitiesForWorkspace(workspace);
   }
   
-  const audit = await getAuditForRepo();
-  console.log("Repo audit", audit.metadata.vulnerabilities);
+  // const audit = await getAuditForRepo();
+  // console.log("Repo audit", audit.metadata.vulnerabilities);
   console.log("Workspace audit", workspaceAudit);
 }
 
