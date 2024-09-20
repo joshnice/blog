@@ -20,4 +20,4 @@ jobs:
                 cache: npm
             
             - name: Audit frontend
-              run: node ./.github/workflow-helpers/audit.js
+              run: node ./.github/workflow-helpers/audit.mjs

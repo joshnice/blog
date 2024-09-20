@@ -4,11 +4,10 @@
 	"description": "Monorepo for blog project",
 	"main": "index.js",
 	"workspaces": [
-		"backend",
 		"frontend",
-		"common/types",
-		"common/helpers",
-		"infra"
+		"common/*",
+		"infra",
+		"api"
 	],
 	"scripts": {
 		"build": "npm run build -ws --if-present",
@@ -21,9 +20,5 @@
 		"infra-validate": "npm run validate -w @joshnice/blog-infra"
 	},
 	"author": "joshnice",
-	"license": "ISC",
-	"devDependencies": {
-		"concurrently": "^8.0.1",
-		"ttab": "^0.8.0"
-	}
+	"license": "ISC"
 }
