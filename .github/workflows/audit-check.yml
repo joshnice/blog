@@ -20,7 +20,4 @@ jobs:
                 cache: npm
             
             - name: Audit frontend
-              run: npm audit --json -w @joshnice/blog-frontend
-
-            - name: Audit api
-              run: npm audit --json -w @joshnice/blog-api
+              run: node ./.github/workflow-helpers/audit.js
