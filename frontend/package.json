@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@highlight-run/react": "^3.2.1",
+    "@highlight-run/react": "^6.0.1",
     "hamburger-react": "^2.5.0",
     "highlight.run": "^9.4.1",
     "react": "^18.2.0",
