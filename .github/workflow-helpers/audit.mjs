@@ -12,7 +12,7 @@ function getVulnerabilitiesForWorkspace(workspaceName) {
 
 function getAuditForRepo() {
   return new Promise((res) =>
-    exec(`npm audit --json"`, (_, output) => {
+    exec(`npm audit --json`, (_, output) => {
       res(JSON.parse(output));
     })
   );
@@ -66,8 +66,8 @@ async function main() {
     workspaceAudit[workspacePackageJson.name] = await getVulnerabilitiesForWorkspace(workspace);
   }
   
-  // const audit = await getAuditForRepo();
-  // console.log("Repo audit", audit.metadata.vulnerabilities);
+  const audit = await getAuditForRepo();
+  console.log("Repo audit", audit.metadata.vulnerabilities);
   console.log("Workspace audit", workspaceAudit);
 }
 
