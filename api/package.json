@@ -5,8 +5,8 @@
     "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
-    "@aws-sdk/s3-request-presigner": "^3.540.0",
-    "@aws-sdk/client-s3": "^3.540.0",
+    "@aws-sdk/s3-request-presigner": "^3.657.0",
+    "@aws-sdk/client-s3": "^3.657.0",
     "@joshnice/helpers": "1.0.4",
     "@joshnice/types": "1.0.6",
     "@upstash/ratelimit": "^1.0.3",
@@ -15,6 +15,6 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240208.0",
-    "wrangler": "^3.32.0"
+    "wrangler": "^3.78.8"
   }
 }
