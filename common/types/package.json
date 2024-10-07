@@ -16,7 +16,7 @@
   "author": "joshnice",
   "license": "ISC",
   "devDependencies": {
-    "mysql2": "^3.2.3",
+    "mysql2": "^3.9.8",
     "typescript": "^5.0.4"
   }
 }
