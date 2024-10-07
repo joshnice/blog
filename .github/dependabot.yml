@@ -18,7 +18,7 @@ updates:
       security-minor:
         applies-to: security-updates
         update-types:
-          - "minor
+          - "minor"
       security-patch:
         applies-to: security-updates
         update-types:
