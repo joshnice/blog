@@ -10,8 +10,8 @@
     "@joshnice/helpers": "1.0.4",
     "@joshnice/types": "1.0.6",
     "@upstash/ratelimit": "^1.0.3",
-    "@upstash/redis": "^1.29.0",
-    "hono": "^4.1.2"
+    "@upstash/redis": "^1.34.3",
+    "hono": "^4.6.9"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240208.0",
