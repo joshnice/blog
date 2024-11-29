@@ -9,7 +9,8 @@ export default defineConfig({
     },
     org: "joshnice",
     project: "blog",
-    authToken: process.env.SENTRY_AUTH_TOKEN,
+    // @ts-ignore
+    authToken: import.meta.env.SENTRY_AUTH_TOKEN,
   })],
   build: {
     sourcemap: true

@@ -33,6 +33,8 @@ jobs:
 
             - name: Build
               run: npm run build -w @joshnice/blog-frontend
+              env:
+                SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
             - name: Sync S3 bucket 
               run: aws s3 sync ./frontend/dist/ s3://joshliamnice.co.uk --delete
