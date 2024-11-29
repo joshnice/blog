@@ -6,7 +6,7 @@ Sentry.init({
   dsn: "https://9828452521bec5d46b6ee751b58d8796@o4508383409864704.ingest.de.sentry.io/4508383412682832",
   integrations: [
     Sentry.browserTracingIntegration(),
-    Sentry.replayIntegration(),
+    Sentry.replayIntegration({ mask: [] }),
   ],
   enabled: window.location.hostname === "www.joshliamnice.co.uk",
   tracesSampleRate: 1.0,
