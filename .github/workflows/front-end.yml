@@ -34,15 +34,5 @@ jobs:
             - name: Build
               run: npm run build -w @joshnice/blog-frontend
 
-            - name: Create Sentry release
-              uses: getsentry/action-release@v1
-              env:
-                SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-                SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-                SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-              with:
-                environment: production
-                sourcemaps: './frontend/dist'
-
             - name: Sync S3 bucket 
               run: aws s3 sync ./frontend/dist/ s3://joshliamnice.co.uk --delete

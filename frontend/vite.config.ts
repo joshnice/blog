@@ -8,7 +8,8 @@ export default defineConfig({
       filesToDeleteAfterUpload: "**/*.js.map",
     },
     org: "joshnice",
-    project: "blog"
+    project: "blog",
+    authToken: process.env.SENTRY_AUTH_TOKEN,
   })],
   build: {
     sourcemap: true
